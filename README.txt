@@ -1,1 +1,2 @@
- Core mod for Gregtech - Skyblock Edition 
+#GSECore
+Core mod for Gregtech - Skyblock Edition 
