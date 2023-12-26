@@ -25,4 +25,6 @@ dependencies {
     implementation rfg.deobf("curse.maven:gregtech-ce-unofficial-557242:4965457")
     implementation rfg.deobf("curse.maven:ex-nihilo-creatio-274456:2817545")
     implementation rfg.deobf("curse.maven:forgelin-248453:2785465")
+    compileOnlyApi rfg.deobf("curse.maven:groovyscript-687577:4961595")
+//    implementation rfg.deobf("curse.maven:codechickenlib-242818:2779848") // Uncomment if you want to use runClient
 }
