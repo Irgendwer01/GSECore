@@ -126,7 +126,7 @@
     },
     "diamond": {
       "meshlevel": 2,
-      "chance": 0.0033
+      "chance": 0.0133
     },
     "coal": {
       "meshlevel": 2,
@@ -299,7 +299,7 @@
       "chance": 0.1014
     },
     "diamond": {
-      "meshlevel": 4,
+      "meshlevel": 3,
       "chance": 0.0338
     },
     "coal": {
@@ -635,7 +635,7 @@
       "chance": 0.1014
     },
     "diamond": {
-      "meshlevel": 4,
+      "meshlevel": 3,
       "chance": 0.0338
     },
     "coal": {
