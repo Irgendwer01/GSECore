@@ -10,6 +10,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.Ingredient;
 import net.minecraftforge.fluids.FluidRegistry;
 import net.minecraftforge.fluids.FluidStack;
+import net.minecraftforge.oredict.OreDictionary;
 
 import com.irgendwer01.gsecore.recipes.recipemaps.SieveRecipeMap;
 
@@ -23,6 +24,7 @@ import gregtech.api.gui.widgets.ProgressWidget;
 import gregtech.api.recipes.RecipeMap;
 import gregtech.api.recipes.builders.SimpleRecipeBuilder;
 import gregtech.api.recipes.chance.output.ChancedOutputLogic;
+import gregtech.api.recipes.ingredients.GTRecipeOreInput;
 
 public class GTRecipes {
 
@@ -41,9 +43,17 @@ public class GTRecipes {
                 if (SIEVE_RECIPES.findRecipe(4, Arrays.asList(stack, recipe.getMesh()), new ArrayList<>(), true) !=
                         null)
                     continue;
-                SimpleRecipeBuilder builder = SIEVE_RECIPES.recipeBuilder().notConsumable(recipe.getMesh())
-                        .inputs(stack);
-
+                int[] oreDict = OreDictionary.getOreIDs(stack);
+                SimpleRecipeBuilder builder = SIEVE_RECIPES.recipeBuilder().notConsumable(recipe.getMesh());
+                if (oreDict.length != 0) {
+                    String oreDictName = OreDictionary.getOreName(oreDict[0]);
+                    if ((oreDictName.equals("stoneSmooth") || oreDictName.equals("stoneCobble")) && oreDict.length >= 2) {
+                        oreDictName = OreDictionary.getOreName(oreDict[1]);
+                    }
+                    builder.inputs(new GTRecipeOreInput(oreDictName));
+                } else {
+                    builder.inputs(stack);
+                }
                 for (Siftable siftable : ExNihiloRegistryManager.SIEVE_REGISTRY.getDrops(stack)) {
                     if (siftable.getMeshLevel() == recipe.getMesh().getMetadata())
                         if ((int) (siftable.getChance() * (float) ChancedOutputLogic.getMaxChancedValue()) >=
@@ -68,8 +78,17 @@ public class GTRecipes {
                         null) {
                     continue;
                 }
+                int[] oreDict = OreDictionary.getOreIDs(stack);
                 SimpleRecipeBuilder builder = EXTRACTOR_RECIPES.recipeBuilder().duration(40).EUt(30);
-                builder.input(stack.getItem(), 1, stack.getMetadata());
+                if (oreDict.length != 0) {
+                    String oreDictName = OreDictionary.getOreName(oreDict[0]);
+                    if ((oreDictName.equals("stoneSmooth") || oreDictName.equals("stoneCobble")) && oreDict.length >= 2) {
+                        oreDictName = OreDictionary.getOreName(oreDict[1]);
+                    }
+                    builder.inputs(new GTRecipeOreInput(oreDictName));
+                } else {
+                    builder.inputs(stack);
+                }
                 builder.fluidOutputs(new FluidStack(FluidRegistry.getFluid(entry.getValue().getFluid()),
                         entry.getValue().getAmount()));
                 builder.buildAndRegister();
@@ -85,10 +104,18 @@ public class GTRecipes {
                         null) {
                     continue;
                 }
+                int[] oreDict = OreDictionary.getOreIDs(stack);
                 SimpleRecipeBuilder builder = FORGE_HAMMER_RECIPES.recipeBuilder().EUt(10).duration(100);
-                builder.input(stack.getItem(), 1, stack.getMetadata());
+                if (oreDict.length != 0) {
+                    String oreDictName = OreDictionary.getOreName(oreDict[0]);
+                    if ((oreDictName.equals("stoneSmooth") || oreDictName.equals("stoneCobble")) && oreDict.length >= 2) {
+                        oreDictName = OreDictionary.getOreName(oreDict[1]);
+                    }
+                    builder.inputs(new GTRecipeOreInput(oreDictName));
+                } else {
+                    builder.inputs(stack);
+                }
                 HammerReward reward = entry.getValue().get(0);
-
                 if (reward.getChance() == 1f) {
                     builder.output(reward.getStack().getItem(), reward.getStack().getCount(),
                             reward.getStack().getMetadata());
