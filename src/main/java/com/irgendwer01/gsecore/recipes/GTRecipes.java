@@ -100,12 +100,12 @@ public class GTRecipes {
         for (Map.Entry<Ingredient, List<HammerReward>> entry : ExNihiloRegistryManager.HAMMER_REGISTRY.getRegistry()
                 .entrySet()) {
             for (ItemStack stack : entry.getKey().getMatchingStacks()) {
-                if (FORGE_HAMMER_RECIPES.findRecipe(10, Collections.singletonList(stack), new ArrayList<>(), true) !=
+                if (FORGE_HAMMER_RECIPES.findRecipe(16, Collections.singletonList(stack), new ArrayList<>(), true) !=
                         null) {
                     continue;
                 }
                 int[] oreDict = OreDictionary.getOreIDs(stack);
-                SimpleRecipeBuilder builder = FORGE_HAMMER_RECIPES.recipeBuilder().EUt(10).duration(100);
+                SimpleRecipeBuilder builder = FORGE_HAMMER_RECIPES.recipeBuilder().EUt(16).duration(10);
                 if (oreDict.length != 0) {
                     String oreDictName = OreDictionary.getOreName(oreDict[0]);
                     if ((oreDictName.equals("stoneSmooth") || oreDictName.equals("stoneCobble")) && oreDict.length >= 2) {
