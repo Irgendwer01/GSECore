@@ -28,6 +28,6 @@ public class SurvivalHelperMixin {
                 break;
             }
         }
-        if (origstack == ItemStack.EMPTY) cir.setReturnValue(false);
+        if (origstack.equals(ItemStack.EMPTY)) cir.setReturnValue(false);
     }
 }
