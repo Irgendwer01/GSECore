@@ -47,7 +47,8 @@ public class GTRecipes {
                 SimpleRecipeBuilder builder = SIEVE_RECIPES.recipeBuilder().notConsumable(recipe.getMesh());
                 if (oreDict.length != 0) {
                     String oreDictName = OreDictionary.getOreName(oreDict[0]);
-                    if ((oreDictName.equals("stoneSmooth") || oreDictName.equals("stoneCobble")) && oreDict.length >= 2) {
+                    if ((oreDictName.equals("stoneSmooth") || oreDictName.equals("stoneCobble")) &&
+                            oreDict.length >= 2) {
                         oreDictName = OreDictionary.getOreName(oreDict[1]);
                     }
                     builder.inputs(new GTRecipeOreInput(oreDictName));
@@ -82,7 +83,8 @@ public class GTRecipes {
                 SimpleRecipeBuilder builder = EXTRACTOR_RECIPES.recipeBuilder().duration(40).EUt(30);
                 if (oreDict.length != 0) {
                     String oreDictName = OreDictionary.getOreName(oreDict[0]);
-                    if ((oreDictName.equals("stoneSmooth") || oreDictName.equals("stoneCobble")) && oreDict.length >= 2) {
+                    if ((oreDictName.equals("stoneSmooth") || oreDictName.equals("stoneCobble")) &&
+                            oreDict.length >= 2) {
                         oreDictName = OreDictionary.getOreName(oreDict[1]);
                     }
                     builder.inputs(new GTRecipeOreInput(oreDictName));
@@ -108,7 +110,8 @@ public class GTRecipes {
                 SimpleRecipeBuilder builder = FORGE_HAMMER_RECIPES.recipeBuilder().EUt(16).duration(10);
                 if (oreDict.length != 0) {
                     String oreDictName = OreDictionary.getOreName(oreDict[0]);
-                    if ((oreDictName.equals("stoneSmooth") || oreDictName.equals("stoneCobble")) && oreDict.length >= 2) {
+                    if ((oreDictName.equals("stoneSmooth") || oreDictName.equals("stoneCobble")) &&
+                            oreDict.length >= 2) {
                         oreDictName = OreDictionary.getOreName(oreDict[1]);
                     }
                     builder.inputs(new GTRecipeOreInput(oreDictName));

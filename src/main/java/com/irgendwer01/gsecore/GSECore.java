@@ -2,7 +2,10 @@ package com.irgendwer01.gsecore;
 
 import java.io.*;
 import java.nio.file.Files;
+import java.util.Collections;
+import java.util.List;
 
+import gregtech.api.metatileentity.multiblock.MultiblockAbility;
 import net.minecraftforge.fml.common.Loader;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
@@ -16,13 +19,14 @@ import com.irgendwer01.gsecore.metatileentities.MetaTileEntities;
 import com.irgendwer01.gsecore.recipes.CraftingRecipes;
 import com.irgendwer01.gsecore.recipes.ExNihiloRecipes;
 import com.irgendwer01.gsecore.recipes.GTRecipes;
+import zone.rong.mixinbooter.ILateMixinLoader;
 
 @Mod(modid = Tags.MODID,
      name = Tags.MODNAME,
      version = Tags.VERSION,
      dependencies = "required-after:gregtech;" +
              "required-after:exnihilocreatio;")
-public class GSECore {
+public class GSECore implements ILateMixinLoader {
 
     public static final Logger logger = LogManager.getLogger("GSECore");
     public static Pebbles GTPebbles;
@@ -50,5 +54,10 @@ public class GSECore {
         ExNihiloRecipes.registerRecipes();
         CraftingRecipes.RegisterCraftingRecipes();
         GTRecipes.registerExNihiloRecipes();
+    }
+
+    @Override
+    public List<String> getMixinConfigs() {
+        return Collections.singletonList("mixins.gsecore.json");
     }
 }
