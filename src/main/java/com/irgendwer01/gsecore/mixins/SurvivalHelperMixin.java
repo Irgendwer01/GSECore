@@ -8,17 +8,22 @@ import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
-import nl.requios.effortlessbuilding.helper.SurvivalHelper;
+
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
+import nl.requios.effortlessbuilding.helper.SurvivalHelper;
+
 @Mixin(SurvivalHelper.class)
 public class SurvivalHelperMixin {
 
     @Inject(method = "placeBlock", at = @At("HEAD"), remap = false, cancellable = true)
-    private static void PlaceBlockMixin(World world, EntityPlayer player, BlockPos pos, IBlockState blockState, ItemStack origstack, EnumFacing facing, Vec3d hitVec, boolean skipPlaceCheck, boolean skipCollisionCheck, boolean playSound, CallbackInfoReturnable<Boolean> cir) {
+    private static void PlaceBlockMixin(World world, EntityPlayer player, BlockPos pos, IBlockState blockState,
+                                        ItemStack origstack, EnumFacing facing, Vec3d hitVec, boolean skipPlaceCheck,
+                                        boolean skipCollisionCheck, boolean playSound,
+                                        CallbackInfoReturnable<Boolean> cir) {
         int meta = blockState.getBlock().damageDropped(blockState);
         origstack = ItemStack.EMPTY;
         for (int i = 0; i < player.inventory.mainInventory.size(); i++) {

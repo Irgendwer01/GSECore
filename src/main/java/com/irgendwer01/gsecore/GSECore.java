@@ -5,7 +5,6 @@ import java.nio.file.Files;
 import java.util.Collections;
 import java.util.List;
 
-import gregtech.api.metatileentity.multiblock.MultiblockAbility;
 import net.minecraftforge.fml.common.Loader;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
@@ -19,6 +18,7 @@ import com.irgendwer01.gsecore.metatileentities.MetaTileEntities;
 import com.irgendwer01.gsecore.recipes.CraftingRecipes;
 import com.irgendwer01.gsecore.recipes.ExNihiloRecipes;
 import com.irgendwer01.gsecore.recipes.GTRecipes;
+
 import zone.rong.mixinbooter.ILateMixinLoader;
 
 @Mod(modid = Tags.MODID,
