@@ -1,7 +1,6 @@
 package com.irgendwer01.gsecore.recipes;
 
 import static com.irgendwer01.gsecore.metatileentities.MetaTileEntities.*;
-import static gregtech.api.unification.material.Materials.*;
 import static gregtech.api.unification.ore.OrePrefix.stick;
 import static gregtech.api.unification.ore.OrePrefix.stone;
 import static gregtech.common.blocks.BlockSteamCasing.SteamCasingType.BRONZE_HULL;
@@ -34,7 +33,7 @@ public class CraftingRecipes {
                 MetaBlocks.STEAM_CASING.getItemVariant(BRONZE_HULL), 'S', new ItemStack(ModBlocks.sieve), 'P',
                 Blocks.PISTON);
         ModHandler.addShapedRecipe(true, "steam_sieve_steel", STEAM_SIEVE_STEEL.getStackForm(), "BPB", "WMW", "BBB",
-                'B', new UnificationEntry(OrePrefix.pipeSmallFluid, Materials.WroughtIron), 'M',
+                'B', new UnificationEntry(OrePrefix.pipeSmallFluid, Materials.TinAlloy), 'M',
                 STEAM_SIEVE_BRONZE.getStackForm(), 'W', new UnificationEntry(OrePrefix.plate, Materials.WroughtIron),
                 'P', new UnificationEntry(OrePrefix.plate, Materials.Steel));
 
@@ -45,20 +44,21 @@ public class CraftingRecipes {
                 'S', new ItemStack(Items.STRING));
         ModHandler.removeRecipeByName("exnihilocreatio:item_mesh_3");
         ModHandler.addShapedRecipe("steel_mesh", new ItemStack(ModItems.mesh, 1, 3), "TST", "STS", "TST",
-                'T', new UnificationEntry(stick, Steel),
+                'T', new UnificationEntry(stick, Materials.Steel),
                 'S', new ItemStack(Items.STRING));
         ModHandler.removeRecipeByName("exnihilocreatio:item_mesh_4");
         ModHandler.addShapedRecipe("aluminium_mesh", new ItemStack(ModItems.mesh, 1, 4), "TST", "STS", "TST",
-                'T', new UnificationEntry(stick, Aluminium),
+                'T', new UnificationEntry(stick, Materials.Aluminium),
                 'S', new ItemStack(Items.STRING));
 
-        ModHandler.addShapedRecipe("basalt", OreDictUnifier.get(stone, Basalt, 1), "PP", "PP", 'P',
+        ModHandler.addShapedRecipe("basalt", OreDictUnifier.get(stone, Materials.Basalt, 1), "PP", "PP", 'P',
                 new ItemStack(GSECore.GTPebbles, 1, 0));
-        ModHandler.addShapedRecipe("black_granite", OreDictUnifier.get(stone, GraniteBlack, 1), "PP", "PP", 'P',
+        ModHandler.addShapedRecipe("black_granite", OreDictUnifier.get(stone, Materials.GraniteBlack, 1), "PP", "PP",
+                'P',
                 new ItemStack(GSECore.GTPebbles, 1, 1));
-        ModHandler.addShapedRecipe("marble", OreDictUnifier.get(stone, Marble, 1), "PP", "PP", 'P',
+        ModHandler.addShapedRecipe("marble", OreDictUnifier.get(stone, Materials.Marble, 1), "PP", "PP", 'P',
                 new ItemStack(GSECore.GTPebbles, 1, 2));
-        ModHandler.addShapedRecipe("red_granite", OreDictUnifier.get(stone, GraniteRed, 1), "PP", "PP", 'P',
+        ModHandler.addShapedRecipe("red_granite", OreDictUnifier.get(stone, Materials.GraniteRed, 1), "PP", "PP", 'P',
                 new ItemStack(GSECore.GTPebbles, 1, 3));
     }
 }

@@ -27,6 +27,6 @@ dependencies {
     implementation rfg.deobf("curse.maven:forgelin-248453:2785465")
     compileOnlyApi rfg.deobf("curse.maven:groovyscript-687577:4961595")
     compileOnlyApi "CraftTweaker2:CraftTweaker2-MC1120-Main:1.12-4.1.20.684"
-    implementation rfg.deobf("curse.maven:codechickenlib-242818:2779848") // Uncomment if you want to use runClient
+    implementation rfg.deobf("curse.maven:codechickenlib-242818:2779848")
     implementation rfg.deobf("curse.maven:effortlessbuilding-302113:2847346")
 }
