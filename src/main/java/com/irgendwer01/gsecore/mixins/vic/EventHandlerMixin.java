@@ -19,10 +19,10 @@ import com.bartz24.voidislandcontrol.EventHandler;
 import com.bartz24.voidislandcontrol.api.IslandManager;
 import com.irgendwer01.gsecore.world.WorldTypeStoneblock;
 
-@Mixin(value = EventHandler.class, remap = false)
+@Mixin(value = EventHandler.class)
 public class EventHandlerMixin {
 
-    @Inject(method = "createSpawn", at = @At("HEAD"), cancellable = true)
+    @Inject(method = "createSpawn", at = @At("HEAD"), cancellable = true, remap = false)
     private static void createSpawn(EntityPlayer player, World world, BlockPos spawn, CallbackInfo ci) {
         if (world.getWorldInfo().getTerrainType() instanceof WorldTypeStoneblock) {
             spawnPlat(null, world, spawn, IslandManager.getIndexOfIslandType("stoneblock"));
@@ -30,10 +30,10 @@ public class EventHandlerMixin {
         }
     }
 
-    @Shadow
+    @Shadow(remap = false)
     private static void spawnPlat(@Nullable EntityPlayer player, World world, BlockPos spawn, int type) {}
 
-    @Inject(method = "spawnPlat", at = @At("HEAD"))
+    @Inject(method = "spawnPlat", at = @At("HEAD"), remap = false)
     private static void spawnPlat(EntityPlayer player, World world, BlockPos spawn, int type, CallbackInfo ci) {
         if (world.getWorldInfo().getTerrainType() instanceof WorldTypeStoneblock) {
             type = IslandManager.getIndexOfIslandType("stoneblock");
