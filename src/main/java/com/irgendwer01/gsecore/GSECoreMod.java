@@ -5,9 +5,6 @@ import java.nio.file.Files;
 import java.util.Collections;
 import java.util.List;
 
-import com.bartz24.voidislandcontrol.world.WorldTypeVoid;
-import com.irgendwer01.gsecore.world.WorldTypeStoneblock;
-import net.minecraft.world.WorldType;
 import net.minecraftforge.fml.common.Loader;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
@@ -22,6 +19,7 @@ import com.irgendwer01.gsecore.metatileentities.MetaTileEntities;
 import com.irgendwer01.gsecore.recipes.CraftingRecipes;
 import com.irgendwer01.gsecore.recipes.ExNihiloRecipes;
 import com.irgendwer01.gsecore.recipes.GTRecipes;
+import com.irgendwer01.gsecore.world.WorldTypeStoneblock;
 
 import zone.rong.mixinbooter.ILateMixinLoader;
 
@@ -62,8 +60,7 @@ public class GSECoreMod implements ILateMixinLoader {
     }
 
     @Mod.EventHandler
-    public void init(FMLLoadCompleteEvent event) {
-    }
+    public void init(FMLLoadCompleteEvent event) {}
 
     @Override
     public List<String> getMixinConfigs() {

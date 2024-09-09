@@ -1,6 +1,5 @@
 package com.irgendwer01.gsecore.world;
 
-import com.bartz24.voidislandcontrol.config.ConfigOptions;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldType;
 import net.minecraft.world.biome.Biome;
@@ -9,11 +8,14 @@ import net.minecraft.world.biome.BiomeProviderSingle;
 import net.minecraft.world.gen.ChunkGeneratorFlat;
 import net.minecraft.world.gen.IChunkGenerator;
 
+import com.bartz24.voidislandcontrol.config.ConfigOptions;
+
 public class WorldTypeStoneblock extends WorldType {
 
     public WorldTypeStoneblock() {
         super("stoneblock");
     }
+
     public boolean hasInfoNotice() {
         return true;
     }

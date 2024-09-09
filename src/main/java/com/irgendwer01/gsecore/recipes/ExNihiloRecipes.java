@@ -6,7 +6,6 @@ import static com.irgendwer01.gsecore.GSECoreMod.*;
 import java.io.File;
 import java.util.Map;
 
-import com.irgendwer01.gsecore.GSECoreMod;
 import net.minecraft.block.Block;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.Ingredient;
@@ -16,6 +15,7 @@ import net.minecraftforge.oredict.OreDictionary;
 
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
+import com.irgendwer01.gsecore.GSECoreMod;
 
 import exnihilocreatio.ModBlocks;
 import exnihilocreatio.blocks.BlockSieve;

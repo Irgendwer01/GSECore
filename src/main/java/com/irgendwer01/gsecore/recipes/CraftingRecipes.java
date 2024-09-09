@@ -6,10 +6,11 @@ import static gregtech.api.unification.ore.OrePrefix.stone;
 import static gregtech.common.blocks.BlockSteamCasing.SteamCasingType.BRONZE_HULL;
 import static gregtech.loaders.recipe.CraftingComponent.*;
 
-import com.irgendwer01.gsecore.GSECoreMod;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
+
+import com.irgendwer01.gsecore.GSECoreMod;
 
 import exnihilocreatio.ModBlocks;
 import exnihilocreatio.ModItems;
