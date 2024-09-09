@@ -4,12 +4,7 @@
   "target": "@env(DEFAULT)",
   "minVersion": "0.8",
   "compatibilityLevel": "JAVA_8",
-  "mixins": [
-    "vic.EventHandlerMixin",
-    "vic.AdminCommandMixin",
-    "vic.ClientEventHandlerMixin",
-    "vic.PlatformCommandMixin"
-  ],
+  "mixins": [],
   "client": [],
   "server": []
 }

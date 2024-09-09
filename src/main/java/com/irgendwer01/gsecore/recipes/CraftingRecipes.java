@@ -6,11 +6,10 @@ import static gregtech.api.unification.ore.OrePrefix.stone;
 import static gregtech.common.blocks.BlockSteamCasing.SteamCasingType.BRONZE_HULL;
 import static gregtech.loaders.recipe.CraftingComponent.*;
 
+import com.irgendwer01.gsecore.GSECoreMod;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
-
-import com.irgendwer01.gsecore.GSECore;
 
 import exnihilocreatio.ModBlocks;
 import exnihilocreatio.ModItems;
@@ -52,13 +51,13 @@ public class CraftingRecipes {
                 'S', new ItemStack(Items.STRING));
 
         ModHandler.addShapedRecipe("basalt", OreDictUnifier.get(stone, Materials.Basalt, 1), "PP", "PP", 'P',
-                new ItemStack(GSECore.GTPebbles, 1, 0));
+                new ItemStack(GSECoreMod.GTPebbles, 1, 0));
         ModHandler.addShapedRecipe("black_granite", OreDictUnifier.get(stone, Materials.GraniteBlack, 1), "PP", "PP",
                 'P',
-                new ItemStack(GSECore.GTPebbles, 1, 1));
+                new ItemStack(GSECoreMod.GTPebbles, 1, 1));
         ModHandler.addShapedRecipe("marble", OreDictUnifier.get(stone, Materials.Marble, 1), "PP", "PP", 'P',
-                new ItemStack(GSECore.GTPebbles, 1, 2));
+                new ItemStack(GSECoreMod.GTPebbles, 1, 2));
         ModHandler.addShapedRecipe("red_granite", OreDictUnifier.get(stone, Materials.GraniteRed, 1), "PP", "PP", 'P',
-                new ItemStack(GSECore.GTPebbles, 1, 3));
+                new ItemStack(GSECoreMod.GTPebbles, 1, 3));
     }
 }

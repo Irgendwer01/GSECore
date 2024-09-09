@@ -1,11 +1,12 @@
 package com.irgendwer01.gsecore.recipes;
 
 import static com.irgendwer01.gsecore.EventBusSubscriber.*;
-import static com.irgendwer01.gsecore.GSECore.*;
+import static com.irgendwer01.gsecore.GSECoreMod.*;
 
 import java.io.File;
 import java.util.Map;
 
+import com.irgendwer01.gsecore.GSECoreMod;
 import net.minecraft.block.Block;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.Ingredient;
@@ -15,7 +16,6 @@ import net.minecraftforge.oredict.OreDictionary;
 
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
-import com.irgendwer01.gsecore.GSECore;
 
 import exnihilocreatio.ModBlocks;
 import exnihilocreatio.blocks.BlockSieve;
@@ -109,21 +109,21 @@ public class ExNihiloRecipes {
     public static void registerRecipes() {
         processDrops(FileUtility.loadJson(new File(Loader.instance().getConfigDir(), "/gregtech/sieve_drops.json")));
         NonNullList<Siftable> siftablesDirt = NonNullList.create();
-        siftablesDirt.add(new Siftable(new ItemInfo(GSECore.GTPebbles, 3), 0.1f,
+        siftablesDirt.add(new Siftable(new ItemInfo(GSECoreMod.GTPebbles, 3), 0.1f,
                 BlockSieve.MeshType.STRING.getID()));
-        siftablesDirt.add(new Siftable(new ItemInfo(GSECore.GTPebbles), 0.5f,
+        siftablesDirt.add(new Siftable(new ItemInfo(GSECoreMod.GTPebbles), 0.5f,
                 BlockSieve.MeshType.STRING.getID()));
-        siftablesDirt.add(new Siftable(new ItemInfo(GSECore.GTPebbles), 0.1f,
+        siftablesDirt.add(new Siftable(new ItemInfo(GSECoreMod.GTPebbles), 0.1f,
                 BlockSieve.MeshType.STRING.getID()));
-        siftablesDirt.add(new Siftable(new ItemInfo(GSECore.GTPebbles, 1), 0.5f,
+        siftablesDirt.add(new Siftable(new ItemInfo(GSECoreMod.GTPebbles, 1), 0.5f,
                 BlockSieve.MeshType.STRING.getID()));
-        siftablesDirt.add(new Siftable(new ItemInfo(GSECore.GTPebbles, 1), 0.1f,
+        siftablesDirt.add(new Siftable(new ItemInfo(GSECoreMod.GTPebbles, 1), 0.1f,
                 BlockSieve.MeshType.STRING.getID()));
-        siftablesDirt.add(new Siftable(new ItemInfo(GSECore.GTPebbles, 2), 0.5f,
+        siftablesDirt.add(new Siftable(new ItemInfo(GSECoreMod.GTPebbles, 2), 0.5f,
                 BlockSieve.MeshType.STRING.getID()));
-        siftablesDirt.add(new Siftable(new ItemInfo(GSECore.GTPebbles, 2), 0.1f,
+        siftablesDirt.add(new Siftable(new ItemInfo(GSECoreMod.GTPebbles, 2), 0.1f,
                 BlockSieve.MeshType.STRING.getID()));
-        siftablesDirt.add(new Siftable(new ItemInfo(GSECore.GTPebbles, 3), 0.5f,
+        siftablesDirt.add(new Siftable(new ItemInfo(GSECoreMod.GTPebbles, 3), 0.5f,
                 BlockSieve.MeshType.STRING.getID()));
         siftablesDirt.add(new Siftable(new ItemInfo(MetaBlocks.RUBBER_SAPLING.getBlockState().getBlock()), 0.1f,
                 BlockSieve.MeshType.STRING.getID()));

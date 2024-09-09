@@ -5,9 +5,13 @@ import java.nio.file.Files;
 import java.util.Collections;
 import java.util.List;
 
+import com.bartz24.voidislandcontrol.world.WorldTypeVoid;
+import com.irgendwer01.gsecore.world.WorldTypeStoneblock;
+import net.minecraft.world.WorldType;
 import net.minecraftforge.fml.common.Loader;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
+import net.minecraftforge.fml.common.event.FMLLoadCompleteEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 
 import org.apache.logging.log4j.LogManager;
@@ -26,13 +30,14 @@ import zone.rong.mixinbooter.ILateMixinLoader;
      version = Tags.VERSION,
      dependencies = "required-after:gregtech;" +
              "required-after:exnihilocreatio;")
-public class GSECore implements ILateMixinLoader {
+public class GSECoreMod implements ILateMixinLoader {
 
     public static final Logger logger = LogManager.getLogger("GSECore");
     public static Pebbles GTPebbles;
 
     @Mod.EventHandler
     public void preInit(FMLPreInitializationEvent event) {
+        new WorldTypeStoneblock();
         GTPebbles = new Pebbles();
         MetaTileEntities.registerMetaTileEntities();
         File file = new File(Loader.instance().getConfigDir() + "/gregtech/sieve_drops.json");
@@ -54,6 +59,10 @@ public class GSECore implements ILateMixinLoader {
         ExNihiloRecipes.registerRecipes();
         CraftingRecipes.RegisterCraftingRecipes();
         GTRecipes.registerExNihiloRecipes();
+    }
+
+    @Mod.EventHandler
+    public void init(FMLLoadCompleteEvent event) {
     }
 
     @Override
