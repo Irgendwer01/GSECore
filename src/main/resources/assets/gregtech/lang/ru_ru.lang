@@ -1,0 +1,43 @@
+item.gtPebble.basalt.name=Базальтовая галька
+item.gtPebble.black_granite.name=Черно-гранитная галька
+item.gtPebble.marble.name=Мраморная галька
+item.gtPebble.red_granite.name=Красно-гранитная галька
+
+item.material.oreprefix.oreChunk=%s (Кусок руды)
+item.material.oreprefix.oreEnderChunk=%s (Кусок руды края)
+item.material.oreprefix.oreNetherChunk=%s (Незеритовый кусок руды)
+item.material.oreprefix.oreSandyChunk=%s (Песчаный кусок руды)
+
+recipemap.electric_sieve.name=Электросито
+
+gregtech.machine.sieve.steam.name=Паровое сито
+gregtech.machine.sieve.steam.tooltip=Устал в зажимать ПКМ весь день? 
+gregtech.machine.steam_sieve_steel.name=Паровое сито высокого давления
+gregtech.machine.steam_sieve_steel.tooltip=Устал в зажимать ПКМ весь день?
+
+gregtech.machine.sieve.lv.name=Обычное электросито
+gregtech.machine.sieve.lv.tooltip=АФК симулятор
+gregtech.machine.sieve.mv.name=Улучшенное электросито
+gregtech.machine.sieve.mv.tooltip=АФК симулятор
+gregtech.machine.sieve.hv.name=Улучшенное электросито II
+gregtech.machine.sieve.hv.tooltip=АФК симулятор
+gregtech.machine.sieve.ev.name=Улучшенное электросито III
+gregtech.machine.sieve.ev.tooltip=АФК симулятор
+gregtech.machine.sieve.iv.name=Превосходное электросито
+gregtech.machine.sieve.iv.tooltip=Вибрационная камера частиц
+gregtech.machine.sieve.luv.name=Превосходное электросито II
+gregtech.machine.sieve.luv.tooltip=Вибрационная камера частиц
+gregtech.machine.sieve.zpm.name=Превосходное электросито III
+gregtech.machine.sieve.zpm.tooltip=Вибрационная камера частиц
+gregtech.machine.sieve.uv.name=Безупречное электросито
+gregtech.machine.sieve.uv.tooltip=Что-то из ничего
+gregtech.machine.sieve.uhv.name=Идеальное электросито
+gregtech.machine.sieve.uhv.tooltip=Что-то из ничего
+gregtech.machine.sieve.uev.name=Идеальное электросито II
+gregtech.machine.sieve.uev.tooltip=Что-то из ничего
+gregtech.machine.sieve.uiv.name=Идеальное электросито III
+gregtech.machine.sieve.uiv.tooltip=Что-то из ничего
+gregtech.machine.sieve.uxv.name=Идеальное электросито IV
+gregtech.machine.sieve.uxv.tooltip=Что-то из ничего
+gregtech.machine.sieve.opv.name=Совершенное электросито
+gregtech.machine.sieve.opv.tooltip=Что-то из ничего
