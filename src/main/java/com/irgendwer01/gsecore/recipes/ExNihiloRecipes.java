@@ -61,7 +61,6 @@ public class ExNihiloRecipes {
             if (set.getKey().startsWith("ore:")) {
                 block = null;
                 oreDict = set.getKey().substring(4);
-                oreDict = oreDict.toLowerCase();
                 if (!OreDictionary.doesOreNameExist(oreDict)) {
                     logger.error(String.format("OreDict %s does not exist!", oreDict));
                     return;
@@ -80,18 +79,19 @@ public class ExNihiloRecipes {
             for (Map.Entry<String, JsonElement> material : m.entrySet()) {
                 JsonObject values = material.getValue().getAsJsonObject();
                 ItemStack stack;
-                if (!validateDrops(material.getKey(), values.get("meshlevel").getAsInt(),
+                String key = material.getKey().toLowerCase();
+                if (!validateDrops(key, values.get("meshlevel").getAsInt(),
                         values.get("chance").getAsFloat())) {
                     continue;
                 }
                 if (oreDict != null || !(block == ModBlocks.netherrackCrushed || block == ModBlocks.endstoneCrushed)) {
-                    stack = OreDictUnifier.get(oreChunk, GregTechAPI.materialManager.getMaterial(material.getKey()));
+                    stack = OreDictUnifier.get(oreChunk, GregTechAPI.materialManager.getMaterial(key));
                 } else {
                     stack = block == ModBlocks.netherrackCrushed ?
                             OreDictUnifier.get(oreNetherChunk,
-                                    GregTechAPI.materialManager.getMaterial(material.getKey())) :
+                                    GregTechAPI.materialManager.getMaterial(key)) :
                             OreDictUnifier.get(oreEnderChunk,
-                                    GregTechAPI.materialManager.getMaterial(material.getKey()));
+                                    GregTechAPI.materialManager.getMaterial(key));
                 }
                 drops.add(new Siftable(new ItemInfo(stack.getItem(), stack.getMetadata()),
                         values.get("chance").getAsFloat(), values.get("meshlevel").getAsInt()));
