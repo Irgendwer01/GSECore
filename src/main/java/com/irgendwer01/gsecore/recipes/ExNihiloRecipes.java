@@ -61,6 +61,7 @@ public class ExNihiloRecipes {
             if (set.getKey().startsWith("ore:")) {
                 block = null;
                 oreDict = set.getKey().substring(4);
+                oreDict = oreDict.toLowerCase();
                 if (!OreDictionary.doesOreNameExist(oreDict)) {
                     logger.error(String.format("OreDict %s does not exist!", oreDict));
                     return;
