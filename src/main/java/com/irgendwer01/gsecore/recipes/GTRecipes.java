@@ -64,7 +64,7 @@ public class GTRecipes {
                                     builder.chancedOutput(siftable.getDrop().getItemStack(),
                                             (int) (siftable.getChance() *
                                                     (float) ChancedOutputLogic.getMaxChancedValue()),
-                                            200);
+                                            500);
                                 }
                 }
                 builder.buildAndRegister();
