@@ -1,12 +1,19 @@
 package com.irgendwer01.gsecore;
 
+import static gregtech.api.unification.material.info.MaterialFlags.GENERATE_PLATE;
 import static gregtech.api.unification.ore.OrePrefix.Conditions.hasOreProperty;
 import static gregtech.api.unification.ore.OrePrefix.Flags.ENABLE_UNIFICATION;
 
+import gregtech.api.unification.material.Material;
+import gregtech.api.unification.material.properties.ToolProperty;
+import gregtech.api.unification.stack.UnificationEntry;
+import gregtech.loaders.recipe.handlers.ToolRecipeHandler;
 import net.minecraft.block.BlockStone;
 import net.minecraft.init.Blocks;
+import net.minecraft.item.crafting.IRecipe;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
+import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.event.world.BlockEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.EventPriority;
@@ -51,6 +58,21 @@ public class EventBusSubscriber {
         oreNetherChunk.setAlternativeOreName(OrePrefix.oreNetherrack.name());
 
         MetaItems.addOrePrefix(oreChunk, oreEnderChunk, oreNetherChunk);
+    }
+
+    @SubscribeEvent
+    public static void registerRecipes(RegistryEvent.Register<IRecipe> event) {
+        OrePrefix.plate.addProcessingHandler(PropertyKey.TOOL, EventBusSubscriber::processTool);
+
+    }
+
+    private static void processTool(OrePrefix prefix, Material material, ToolProperty property) {
+        if (material.hasFlag(GENERATE_PLATE)) {
+            ToolRecipeHandler.addToolRecipe(material, GSECoreMod.WAND, false,
+                    " hP", " Sf", "S  ",
+                    'P', new UnificationEntry(OrePrefix.plate, material),
+                    'S', new UnificationEntry(OrePrefix.stick, Materials.Wood));
+        }
     }
 
     @SubscribeEvent(priority = EventPriority.HIGH)
