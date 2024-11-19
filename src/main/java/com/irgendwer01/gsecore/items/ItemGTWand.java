@@ -58,7 +58,7 @@ public class ItemGTWand extends ItemUnrestrictedWand implements IGTTool {
             @Override
             public int getMaxBlocks(ItemStack itemStack) {
                 if (itemStack.getItemDamage() <= 0) {
-                    return 200000;
+                    return itemStack.getMaxDamage();
                 } else {
                     return 1 << itemStack.getItemDamage();
                 }
