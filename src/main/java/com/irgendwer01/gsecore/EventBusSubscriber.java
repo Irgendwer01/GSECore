@@ -59,22 +59,6 @@ public class EventBusSubscriber {
 
         MetaItems.addOrePrefix(oreChunk, oreEnderChunk, oreNetherChunk);
     }
-
-    @SubscribeEvent
-    public static void registerRecipes(RegistryEvent.Register<IRecipe> event) {
-        OrePrefix.plate.addProcessingHandler(PropertyKey.TOOL, EventBusSubscriber::processTool);
-
-    }
-
-    private static void processTool(OrePrefix prefix, Material material, ToolProperty property) {
-        if (material.hasFlag(GENERATE_PLATE)) {
-            ToolRecipeHandler.addToolRecipe(material, GSECoreMod.WAND, false,
-                    " hP", " Sf", "S  ",
-                    'P', new UnificationEntry(OrePrefix.plate, material),
-                    'S', new UnificationEntry(OrePrefix.stick, Materials.Wood));
-        }
-    }
-
     @SubscribeEvent(priority = EventPriority.HIGH)
     public static void stoneGen(BlockEvent.FluidPlaceBlockEvent event) {
         if (event.getOriginalState().getBlock() == Blocks.FLOWING_LAVA) {
