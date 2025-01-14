@@ -6,6 +6,7 @@ import static gregtech.common.metatileentities.MetaTileEntities.getMidTier;
 import net.minecraft.util.ResourceLocation;
 
 import com.irgendwer01.gsecore.metatileentities.electric.MetaTileEntitySieve;
+import com.irgendwer01.gsecore.metatileentities.multi.electric.MetaTileEntityLargeSieveMultiblock;
 import com.irgendwer01.gsecore.metatileentities.steam.MetaTileEntitySteamSieve;
 
 import gregtech.api.GTValues;
@@ -16,6 +17,7 @@ public class MetaTileEntities {
     public static MetaTileEntitySteamSieve STEAM_SIEVE_BRONZE;
     public static MetaTileEntitySteamSieve STEAM_SIEVE_STEEL;
     public static MetaTileEntitySieve[] SIEVES = new MetaTileEntitySieve[GTValues.V.length - 1];
+    public static MetaTileEntityLargeSieveMultiblock LARGE_SIEVE;
 
     public static void registerMetaTileEntities() {
         STEAM_SIEVE_BRONZE = gregtech.common.metatileentities.MetaTileEntities.registerMetaTileEntity(4000,
@@ -55,5 +57,8 @@ public class MetaTileEntities {
             SIEVES[12] = gregtech.common.metatileentities.MetaTileEntities.registerMetaTileEntity(4014,
                     new MetaTileEntitySieve(new ResourceLocation(GTValues.MODID, "sieve.opv"), 13));
         }
+
+        LARGE_SIEVE = gregtech.common.metatileentities.MetaTileEntities.registerMetaTileEntity(4015,
+                new MetaTileEntityLargeSieveMultiblock(new ResourceLocation(GTValues.MODID, "large_sieve")));
     }
 }

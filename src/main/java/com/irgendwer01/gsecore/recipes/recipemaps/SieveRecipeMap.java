@@ -13,12 +13,15 @@ import gregtech.api.recipes.builders.SimpleRecipeBuilder;
 
 public class SieveRecipeMap extends RecipeMap<SimpleRecipeBuilder> {
 
+    private final boolean twoInputs;
+
     public SieveRecipeMap(@NotNull String unlocalizedName, int maxInputs, boolean modifyItemInputs, int maxOutputs,
                           boolean modifyItemOutputs, int maxFluidInputs, boolean modifyFluidInputs, int maxFluidOutputs,
                           boolean modifyFluidOutputs, @NotNull SimpleRecipeBuilder defaultRecipeBuilder,
-                          boolean isHidden) {
+                          boolean isHidden, boolean twoInputs) {
         super(unlocalizedName, maxInputs, modifyItemInputs, maxOutputs, modifyItemOutputs, maxFluidInputs,
                 modifyFluidInputs, maxFluidOutputs, modifyFluidOutputs, defaultRecipeBuilder, isHidden);
+        this.twoInputs = twoInputs;
     }
 
     @Override
@@ -47,8 +50,12 @@ public class SieveRecipeMap extends RecipeMap<SimpleRecipeBuilder> {
                 }
             }
         } else {
-            addSlot(builder, 17, 26, 0, itemHandler, fluidHandler, false, false);
-            addSlot(builder, 35, 26, 1, itemHandler, fluidHandler, false, false);
+            if (!twoInputs) {
+                addSlot(builder, 26, 26, 0, itemHandler, fluidHandler, false, false);
+            } else {
+                addSlot(builder, 17, 26, 0, itemHandler, fluidHandler, false, false);
+                addSlot(builder, 35, 26, 1, itemHandler, fluidHandler, false, false);
+            }
         }
     }
 }

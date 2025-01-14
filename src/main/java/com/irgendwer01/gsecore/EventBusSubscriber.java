@@ -3,16 +3,10 @@ package com.irgendwer01.gsecore;
 import static gregtech.api.unification.ore.OrePrefix.Conditions.hasOreProperty;
 import static gregtech.api.unification.ore.OrePrefix.Flags.ENABLE_UNIFICATION;
 
-import net.minecraft.block.BlockStone;
-import net.minecraft.init.Blocks;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.World;
-import net.minecraftforge.event.world.BlockEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.EventPriority;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
-import exnihilocreatio.ModFluids;
 import gregtech.api.unification.material.Materials;
 import gregtech.api.unification.material.event.MaterialEvent;
 import gregtech.api.unification.material.info.MaterialIconType;

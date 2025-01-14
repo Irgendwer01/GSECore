@@ -62,5 +62,4 @@ public class GSECoreMod implements ILateMixinLoader {
     public List<String> getMixinConfigs() {
         return Collections.singletonList("mixins.gsecore.json");
     }
-
 }
