@@ -37,7 +37,7 @@ public class CraftingRecipes {
                 STEAM_SIEVE_BRONZE.getStackForm(), 'W', new UnificationEntry(OrePrefix.plate, Materials.WroughtIron),
                 'P', new UnificationEntry(OrePrefix.plate, Materials.Steel));
         ModHandler.addShapedRecipe(true, "large_sieve", LARGE_SIEVE.getStackForm(), "PCP", "CMC", "WWW",
-                'R', PISTON.getIngredient(2),
+                'P', PISTON.getIngredient(2),
                 'M', SIEVES[1].getStackForm(), 'C', CIRCUIT.getIngredient(2),
                 'W', new UnificationEntry(OrePrefix.cableGtSingle, Materials.Copper));
 
