@@ -44,5 +44,5 @@ gregtech.machine.sieve.uxv.tooltip=From nothing, something
 gregtech.machine.sieve.opv.name=Legendary Electric Sieve
 gregtech.machine.sieve.opv.tooltip=From nothing, something
 
-gregtech.machine.large_sieve.name=Large Electric Sieve
+gregtech.machine.large_electric_sieve.name=Large Electric Sieve
 recipemap.large_sieve.name=Large Electric Sieve
