@@ -8,7 +8,6 @@ import java.util.List;
 import net.minecraftforge.fml.common.Loader;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
-import net.minecraftforge.fml.common.event.FMLLoadCompleteEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 
 import org.apache.logging.log4j.LogManager;
@@ -58,9 +57,6 @@ public class GSECoreMod implements ILateMixinLoader {
         CraftingRecipes.RegisterCraftingRecipes();
         GTRecipes.registerExNihiloRecipes();
     }
-
-    @Mod.EventHandler
-    public void init(FMLLoadCompleteEvent event) {}
 
     @Override
     public List<String> getMixinConfigs() {

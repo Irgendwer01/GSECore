@@ -32,7 +32,14 @@ public class GTRecipes {
     public static final RecipeMap<SimpleRecipeBuilder> SIEVE_RECIPES = new SieveRecipeMap("electric_sieve", 2, false,
             37,
             true, 0, false, 0, false,
-            new SimpleRecipeBuilder().duration(100).EUt(4), false)
+            new SimpleRecipeBuilder().duration(100).EUt(4), false, true)
+                    .setSound(SoundEvents.BLOCK_SAND_PLACE)
+                    .setProgressBar(GuiTextures.PROGRESS_BAR_SIFT, ProgressWidget.MoveType.VERTICAL_INVERTED);
+    public static final RecipeMap<SimpleRecipeBuilder> LARGE_SIEVE_RECIPES = new SieveRecipeMap("large_electric_sieve",
+            1, false,
+            37,
+            true, 0, false, 0, false,
+            new SimpleRecipeBuilder().duration(100).EUt(4), false, false)
                     .setSound(SoundEvents.BLOCK_SAND_PLACE)
                     .setProgressBar(GuiTextures.PROGRESS_BAR_SIFT, ProgressWidget.MoveType.VERTICAL_INVERTED);
 
@@ -45,6 +52,7 @@ public class GTRecipes {
                     continue;
                 int[] oreDict = OreDictionary.getOreIDs(stack);
                 SimpleRecipeBuilder builder = SIEVE_RECIPES.recipeBuilder().notConsumable(recipe.getMesh());
+                SimpleRecipeBuilder large_builder = LARGE_SIEVE_RECIPES.recipeBuilder();
                 if (oreDict.length != 0) {
                     String oreDictName = OreDictionary.getOreName(oreDict[0]);
                     if ((oreDictName.equals("stoneSmooth") || oreDictName.equals("stoneCobble")) &&
@@ -52,8 +60,10 @@ public class GTRecipes {
                         oreDictName = OreDictionary.getOreName(oreDict[1]);
                     }
                     builder.inputs(new GTRecipeOreInput(oreDictName));
+                    large_builder.inputs(new GTRecipeOreInput(oreDictName));
                 } else {
                     builder.inputs(stack);
+                    large_builder.inputs(stack);
                 }
                 for (Siftable siftable : ExNihiloRegistryManager.SIEVE_REGISTRY.getDrops(stack)) {
                     if (siftable.getMeshLevel() == recipe.getMesh().getMetadata())
@@ -64,10 +74,24 @@ public class GTRecipes {
                                     builder.chancedOutput(siftable.getDrop().getItemStack(),
                                             (int) (siftable.getChance() *
                                                     (float) ChancedOutputLogic.getMaxChancedValue()),
-                                            200);
+                                            500);
                                 }
+                    if (LARGE_SIEVE_RECIPES.findRecipe(4, Collections.singletonList(stack), new ArrayList<>(), true) !=
+                            null)
+                        continue;
+                    if ((int) (siftable.getChance() * (float) ChancedOutputLogic.getMaxChancedValue()) >=
+                            ChancedOutputLogic.getMaxChancedValue()) {
+                        large_builder.outputs(siftable.getDrop().getItemStack());
+                    } else {
+                        large_builder.chancedOutput(siftable.getDrop().getItemStack(),
+                                (int) (siftable.getChance() *
+                                        (float) ChancedOutputLogic.getMaxChancedValue()),
+                                500);
+                    }
                 }
                 builder.buildAndRegister();
+                if (!large_builder.getAllItemOutputs().isEmpty())
+                    large_builder.buildAndRegister();
             }
         }
 

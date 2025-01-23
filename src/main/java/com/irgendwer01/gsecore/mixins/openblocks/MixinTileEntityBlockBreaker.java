@@ -1,31 +1,22 @@
 package com.irgendwer01.gsecore.mixins.openblocks;
 
+import java.util.concurrent.atomic.AtomicBoolean;
+
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
-import net.minecraft.entity.item.EntityItem;
 import net.minecraft.init.Blocks;
-import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.IBlockAccess;
-import net.minecraft.world.WorldServer;
 import net.minecraftforge.items.IItemHandler;
 import net.minecraftforge.items.ItemHandlerHelper;
 
-import openmods.fakeplayer.BreakBlockAction;
-import openmods.fakeplayer.FakePlayerPool;
-import openmods.utils.ItemUtils;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Overwrite;
 
 import openblocks.common.tileentity.TileEntityBlockBreaker;
 import openmods.utils.InventoryUtils;
-
-import java.util.Iterator;
-import java.util.List;
-import java.util.concurrent.atomic.AtomicBoolean;
 
 @Mixin(TileEntityBlockBreaker.class)
 public class MixinTileEntityBlockBreaker extends TileEntity {

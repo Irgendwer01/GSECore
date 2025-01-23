@@ -1,3 +1,5 @@
+gt.tool.class.wand=Builder's Wand
+
 item.gtPebble.basalt.name=Basalt Pebble
 item.gtPebble.black_granite.name=Black Granite Pebble
 item.gtPebble.marble.name=Marble Pebble
@@ -41,3 +43,6 @@ gregtech.machine.sieve.uxv.name=Epic Electric Sieve IV
 gregtech.machine.sieve.uxv.tooltip=From nothing, something
 gregtech.machine.sieve.opv.name=Legendary Electric Sieve
 gregtech.machine.sieve.opv.tooltip=From nothing, something
+
+gregtech.machine.large_sieve.name=Large Electric Sieve
+recipemap.large_sieve.name=Large Electric Sieve
