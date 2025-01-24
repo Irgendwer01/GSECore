@@ -10,7 +10,8 @@
     "vic.ClientEventHandlerMixin",
     "vic.PlatformCommandMixin",
     "openblocks.MixinTileEntityBlockBreaker",
-    "gregtech.MixinRecipeBuilder"
+    "gregtech.MixinRecipeBuilder",
+    "gregtech.MixinBlockMachine"
   ],
   "client": [],
   "server": []
