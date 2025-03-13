@@ -4,6 +4,7 @@
   "target": "@env(DEFAULT)",
   "minVersion": "0.8",
   "compatibilityLevel": "JAVA_8",
+  "minMixinExtrasVersion": "0.5.0-beta.4",
   "mixins": [
     "vic.EventHandlerMixin",
     "vic.AdminCommandMixin",
@@ -11,7 +12,9 @@
     "vic.PlatformCommandMixin",
     "openblocks.MixinTileEntityBlockBreaker",
     "gregtech.MixinRecipeBuilder",
-    "gregtech.MixinBlockMachine"
+    "gregtech.MixinBlockMachine",
+    "gregtech.MixinBoilerRecipeLogic",
+    "gregtech.MixinMetaTileEntityLargeBoiler"
   ],
   "client": [],
   "server": []
