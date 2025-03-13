@@ -6,7 +6,6 @@ import org.spongepowered.asm.mixin.injection.ModifyVariable;
 
 import gregtech.api.capability.impl.BoilerRecipeLogic;
 
-// Remove when new CEu update is out
 @Mixin(BoilerRecipeLogic.class)
 public abstract class MixinBoilerRecipeLogic {
 
@@ -15,6 +14,7 @@ public abstract class MixinBoilerRecipeLogic {
         if (fuelBurnTime < 1200) {
             return 0;
         }
+        // Remove when new CEu update is out
         return fuelBurnTime * 10;
     }
 }
