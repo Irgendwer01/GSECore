@@ -14,7 +14,8 @@
     "gregtech.MixinRecipeBuilder",
     "gregtech.MixinBlockMachine",
     "gregtech.MixinBoilerRecipeLogic",
-    "gregtech.MixinMetaTileEntityLargeBoiler"
+    "gregtech.MixinMetaTileEntityLargeBoiler",
+    "gregicality.MixinMetaTileEntitySteamEngine"
   ],
   "client": [],
   "server": []

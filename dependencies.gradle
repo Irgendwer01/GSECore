@@ -22,6 +22,7 @@
  * For more details, see https://docs.gradle.org/8.0.1/userguide/java_library_plugin.html#sec:java_library_configurations_graph
  */
 dependencies {
+    implementation rfg.deobf("curse.maven:gcym-564858:5619513")
     implementation rfg.deobf("curse.maven:gregtech-ce-unofficial-557242:5519022")
     implementation rfg.deobf("curse.maven:ex-nihilo-creatio-274456:2817545")
     implementation rfg.deobf("curse.maven:forgelin-248453:2785465")
