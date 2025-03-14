@@ -31,7 +31,7 @@ import gregtech.client.renderer.ICubeRenderer;
 public abstract class MixinMetaTileEntitySteamEngine extends FuelMultiblockController {
 
     public MixinMetaTileEntitySteamEngine(ResourceLocation metaTileEntityId) {
-        super(metaTileEntityId, RecipeMaps.STEAM_TURBINE_FUELS, GTValues.HV);
+        super(metaTileEntityId, RecipeMaps.STEAM_TURBINE_FUELS, GTValues.MV);
     }
 
     @Overwrite
