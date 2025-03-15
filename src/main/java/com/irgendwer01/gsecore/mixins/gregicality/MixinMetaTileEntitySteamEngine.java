@@ -34,22 +34,38 @@ public abstract class MixinMetaTileEntitySteamEngine extends FuelMultiblockContr
         super(metaTileEntityId, RecipeMaps.STEAM_TURBINE_FUELS, GTValues.MV);
     }
 
+
+    /**
+     * @author Irgendwer01
+     * @reason Make Industrial Steam Engine structure a bit more thicc
+     */
     @Overwrite
     @Override
     protected @NotNull BlockPattern createStructurePattern() {
         return FactoryBlockPattern.start()
-                .aisle("#XXX", "XXXX", "#XXX")
+                .aisle("#XXX", "XXEX", "#XXX")
                 .aisle("XXXX", "XXGX", "XXMX")
                 .aisle("#XXX", "XXGX", "#XXX")
                 .aisle("#XXX", "#XSX", "#XXX")
                 .where('S', selfPredicate())
                 .where('X', states(getCasingState()).setMinGlobalLimited(30)
-                        .or(autoAbilities(false, true, true, true, true, true, false))
-                        .or(energyOutputPredicate().setMinGlobalLimited(1).setMaxGlobalLimited(4).setPreviewCount(1)))
+                        .or(autoAbilities(false, true, true, true, true, true, false)))
+                .where('E', energyOutputPredicate())
                 .where('G', states(getCasingState2()))
                 .where('M', abilities(MultiblockAbility.MUFFLER_HATCH))
                 .where('#', any())
                 .build();
+    }
+
+
+    /**
+     * @author Irgendwer01
+     * @reason Change tooltip accordingly to the changes
+     */
+    @Overwrite
+    public void addInformation(ItemStack stack, @Nullable World player, @NotNull List<String> tooltip, boolean advanced) {
+        super.addInformation(stack, player, tooltip, advanced);
+        tooltip.add(I18n.format("gcym.machine.steam_engine.tooltip.1", GTValues.VNF[GTValues.EV]));
     }
 
     @Shadow
@@ -67,18 +83,6 @@ public abstract class MixinMetaTileEntitySteamEngine extends FuelMultiblockContr
     @Shadow
     private static TraceabilityPredicate energyOutputPredicate() {
         return null;
-    }
-
-    /**
-     * @author Irgendwer01
-     * @reason Change tooltip to reflect the changes
-     */
-    @Overwrite
-    @Override
-    public void addInformation(ItemStack stack, @Nullable World player, @NotNull List<String> tooltip,
-                               boolean advanced) {
-        super.addInformation(stack, player, tooltip, advanced);
-        tooltip.add(I18n.format("gcym.machine.steam_engine.tooltip.1", GTValues.VNF[GTValues.HV]));
     }
 
     @Shadow

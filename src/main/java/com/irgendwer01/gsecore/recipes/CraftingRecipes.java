@@ -6,6 +6,7 @@ import static gregtech.api.unification.ore.OrePrefix.stone;
 import static gregtech.common.blocks.BlockSteamCasing.SteamCasingType.BRONZE_HULL;
 import static gregtech.loaders.recipe.CraftingComponent.*;
 
+import gregtech.common.metatileentities.MetaTileEntities;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
@@ -28,6 +29,12 @@ public class CraftingRecipes {
         // Machine Recipes
         MetaTileEntityLoader.registerMachineRecipe(SIEVES, "CPC", "FMF", "OSO", 'M', HULL, 'C', CIRCUIT, 'O', CABLE,
                 'F', CONVEYOR, 'S', new ItemStack(ModBlocks.sieve), 'P', PISTON);
+
+        ModHandler.addShapedRecipe(true, "4a_lv_dynamo_hatch", ENERGY_OUTPUT_HATCH_4A[0].getStackForm(), "C C", "CEC", 'C', OreDictUnifier.get(OrePrefix.cableGtQuadruple, Materials.Tin), 'E', MetaTileEntities.ENERGY_OUTPUT_HATCH[1].getStackForm());
+        ModHandler.addShapedRecipe(true, "16a_lv_dynamo_hatch", ENERGY_OUTPUT_HATCH_16A[0].getStackForm(), "C C", "CEC", 'C', OreDictUnifier.get(OrePrefix.cableGtOctal, Materials.Tin), 'E', ENERGY_OUTPUT_HATCH_4A[0].getStackForm());
+        ModHandler.addShapedRecipe(true, "4a_mv_dynamo_hatch", ENERGY_OUTPUT_HATCH_4A[1].getStackForm(), "C C", "CEC", 'C', OreDictUnifier.get(OrePrefix.cableGtQuadruple, Materials.Copper), 'E', MetaTileEntities.ENERGY_OUTPUT_HATCH[2].getStackForm());
+        ModHandler.addShapedRecipe(true, "16a_mv_dynamo_hatch", ENERGY_OUTPUT_HATCH_16A[1].getStackForm(), "C C", "CEC", 'C', OreDictUnifier.get(OrePrefix.cableGtOctal, Materials.Copper), 'E', ENERGY_OUTPUT_HATCH_4A[1].getStackForm());
+
         ModHandler.addShapedRecipe(true, "steam_sieve_bronze", STEAM_SIEVE_BRONZE.getStackForm(), "BPB", "BMB", "BSB",
                 'B', new UnificationEntry(OrePrefix.pipeSmallFluid, Materials.Bronze), 'M',
                 MetaBlocks.STEAM_CASING.getItemVariant(BRONZE_HULL), 'S', new ItemStack(ModBlocks.sieve), 'P',

@@ -14,7 +14,7 @@ public abstract class MixinBoilerRecipeLogic {
         if (fuelBurnTime < 1200) {
             return 0;
         }
-        // Remove when new CEu update is out
+        // Remove when new CEu update is out (If #2661 really gets merged)
         return fuelBurnTime * 10;
     }
 }
