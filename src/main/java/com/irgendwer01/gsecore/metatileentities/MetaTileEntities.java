@@ -1,18 +1,16 @@
 package com.irgendwer01.gsecore.metatileentities;
 
-import com.irgendwer01.gsecore.GSECoreMod;
-import com.irgendwer01.gsecore.metatileentities.multi.parts.GSEMetaTileEntityEnergyHatch;
-import gregtech.common.metatileentities.multi.multiblockpart.MetaTileEntityEnergyHatch;
+import static gregtech.common.metatileentities.MetaTileEntities.*;
+
 import net.minecraft.util.ResourceLocation;
 
 import com.irgendwer01.gsecore.metatileentities.electric.MetaTileEntitySieve;
 import com.irgendwer01.gsecore.metatileentities.multi.electric.MetaTileEntityLargeSieveMultiblock;
+import com.irgendwer01.gsecore.metatileentities.multi.parts.GSEMetaTileEntityEnergyHatch;
 import com.irgendwer01.gsecore.metatileentities.steam.MetaTileEntitySteamSieve;
 
 import gregtech.api.GTValues;
-
-import static gregtech.api.util.GTUtility.gregtechId;
-import static gregtech.common.metatileentities.MetaTileEntities.*;
+import gregtech.common.metatileentities.multi.multiblockpart.MetaTileEntityEnergyHatch;
 
 public class MetaTileEntities {
 
@@ -68,12 +66,16 @@ public class MetaTileEntities {
                 new MetaTileEntityLargeSieveMultiblock(new ResourceLocation(GTValues.MODID, "large_sieve")));
 
         ENERGY_OUTPUT_HATCH_4A[0] = registerMetaTileEntity(4016,
-                new GSEMetaTileEntityEnergyHatch(new ResourceLocation(GTValues.MODID,"energy_hatch.output_4a.lv"), 1, 4, true));
+                new GSEMetaTileEntityEnergyHatch(new ResourceLocation(GTValues.MODID, "energy_hatch.output_4a.lv"), 1,
+                        4, true));
         ENERGY_OUTPUT_HATCH_16A[0] = registerMetaTileEntity(4017,
-                new GSEMetaTileEntityEnergyHatch(new ResourceLocation(GTValues.MODID,"energy_hatch.output_16a.lv"), 1, 16, true));
+                new GSEMetaTileEntityEnergyHatch(new ResourceLocation(GTValues.MODID, "energy_hatch.output_16a.lv"), 1,
+                        16, true));
         ENERGY_OUTPUT_HATCH_4A[1] = registerMetaTileEntity(4018,
-                new GSEMetaTileEntityEnergyHatch(new ResourceLocation(GTValues.MODID,"energy_hatch.output_4a.mv"), 2, 4, true));
+                new GSEMetaTileEntityEnergyHatch(new ResourceLocation(GTValues.MODID, "energy_hatch.output_4a.mv"), 2,
+                        4, true));
         ENERGY_OUTPUT_HATCH_16A[1] = registerMetaTileEntity(4019,
-                new GSEMetaTileEntityEnergyHatch(new ResourceLocation(GTValues.MODID,"energy_hatch.output_16a.mv"), 2, 16, true));
+                new GSEMetaTileEntityEnergyHatch(new ResourceLocation(GTValues.MODID, "energy_hatch.output_16a.mv"), 2,
+                        16, true));
     }
 }

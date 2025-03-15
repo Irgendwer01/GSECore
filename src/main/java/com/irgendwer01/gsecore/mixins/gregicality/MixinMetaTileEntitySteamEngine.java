@@ -34,7 +34,6 @@ public abstract class MixinMetaTileEntitySteamEngine extends FuelMultiblockContr
         super(metaTileEntityId, RecipeMaps.STEAM_TURBINE_FUELS, GTValues.MV);
     }
 
-
     /**
      * @author Irgendwer01
      * @reason Make Industrial Steam Engine structure a bit more thicc
@@ -57,13 +56,13 @@ public abstract class MixinMetaTileEntitySteamEngine extends FuelMultiblockContr
                 .build();
     }
 
-
     /**
      * @author Irgendwer01
      * @reason Change tooltip accordingly to the changes
      */
     @Overwrite
-    public void addInformation(ItemStack stack, @Nullable World player, @NotNull List<String> tooltip, boolean advanced) {
+    public void addInformation(ItemStack stack, @Nullable World player, @NotNull List<String> tooltip,
+                               boolean advanced) {
         super.addInformation(stack, player, tooltip, advanced);
         tooltip.add(I18n.format("gcym.machine.steam_engine.tooltip.1", GTValues.VNF[GTValues.EV]));
     }
