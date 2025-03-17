@@ -48,7 +48,5 @@ gregtech.machine.energy_hatch.output_4a.lv.name=LV 4A Dynamo Hatch
 gregtech.machine.energy_hatch.output_16a.lv.name=LV 16A Dynamo Hatch
 gregtech.machine.energy_hatch.output_4a.mv.name=MV 4A Dynamo Hatch
 gregtech.machine.energy_hatch.output_16a.mv.name=MV 16A Dynamo Hatch
-
-
-gregtech.machine.large_sieve.name=Large Electric Sieve
+gregtech.machine.large_electric_sieve.name=Large Electric Sieve
 recipemap.large_sieve.name=Large Electric Sieve
