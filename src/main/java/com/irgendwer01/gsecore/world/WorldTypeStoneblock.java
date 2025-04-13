@@ -49,7 +49,7 @@ public class WorldTypeStoneblock extends WorldType {
 
     @Override
     public IChunkGenerator getChunkGenerator(World world, String generatorOptions) {
-        ChunkGeneratorFlat provider = new ChunkGeneratorFlat(world, world.getSeed(), false, "3;255*minecraft:stone");
+        ChunkGeneratorFlat provider = new ChunkGeneratorFlat(world, world.getSeed(), false, "3;180*minecraft:stone");
         world.setSeaLevel(63);
         return provider;
     }
