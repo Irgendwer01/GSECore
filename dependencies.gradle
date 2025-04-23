@@ -36,4 +36,5 @@ dependencies {
     implementation rfg.deobf("curse.maven:VIC-257655:2666967")
     implementation rfg.deobf("curse.maven:openblocks-228816:2699056")
     implementation rfg.deobf("curse.maven:bbw-238403:2443194")
+    compileOnly    rfg.deobf('curse.maven:pw-963010:6420138')
 }
