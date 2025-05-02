@@ -7,7 +7,7 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Redirect;
 import personalworlds.world.PWWorldProvider;
 
-@Mixin(MetaTileEntityGasCollector.class)
+@Mixin(value = MetaTileEntityGasCollector.class, remap = false)
 public class MixinMetaTileEntityGasCollector {
 
     @Redirect(method = "checkRecipe", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/WorldProvider;getDimension()I"))
