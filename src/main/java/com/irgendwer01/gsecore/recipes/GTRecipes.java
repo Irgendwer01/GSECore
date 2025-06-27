@@ -5,6 +5,10 @@ import static gregtech.api.recipes.RecipeMaps.FORGE_HAMMER_RECIPES;
 
 import java.util.*;
 
+import gregtech.common.blocks.MetaBlocks;
+import gregtech.common.items.MetaItems;
+import net.minecraft.init.Blocks;
+import net.minecraft.init.Items;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.Ingredient;
@@ -33,15 +37,17 @@ public class GTRecipes {
             37,
             true, 0, false, 0, false,
             new SimpleRecipeBuilder().duration(100).EUt(4), false, true)
-                    .setSound(SoundEvents.BLOCK_SAND_PLACE)
-                    .setProgressBar(GuiTextures.PROGRESS_BAR_SIFT, ProgressWidget.MoveType.VERTICAL_INVERTED);
+            .setSound(SoundEvents.BLOCK_SAND_PLACE)
+            .setProgressBar(GuiTextures.PROGRESS_BAR_SIFT, ProgressWidget.MoveType.VERTICAL_INVERTED);
     public static final RecipeMap<SimpleRecipeBuilder> LARGE_SIEVE_RECIPES = new SieveRecipeMap("large_electric_sieve",
             1, false,
             37,
             true, 0, false, 0, false,
             new SimpleRecipeBuilder().duration(100).EUt(4), false, false)
-                    .setSound(SoundEvents.BLOCK_SAND_PLACE)
-                    .setProgressBar(GuiTextures.PROGRESS_BAR_SIFT, ProgressWidget.MoveType.VERTICAL_INVERTED);
+            .setSound(SoundEvents.BLOCK_SAND_PLACE)
+            .setProgressBar(GuiTextures.PROGRESS_BAR_SIFT, ProgressWidget.MoveType.VERTICAL_INVERTED);
+    public static final RecipeMap<SimpleRecipeBuilder> GREENHOUSE_RECIPES = new RecipeMap<>("greenhouse", 3, 4, 1, 0, new SimpleRecipeBuilder(), false);
+
 
     public static void registerExNihiloRecipes() {
         // Mirror Ex Nihilo Sifter recipes to Sifter RecipeMap
@@ -69,13 +75,13 @@ public class GTRecipes {
                     if (siftable.getMeshLevel() == recipe.getMesh().getMetadata())
                         if ((int) (siftable.getChance() * (float) ChancedOutputLogic.getMaxChancedValue()) >=
                                 ChancedOutputLogic.getMaxChancedValue()) {
-                                    builder.outputs(siftable.getDrop().getItemStack());
-                                } else {
-                                    builder.chancedOutput(siftable.getDrop().getItemStack(),
-                                            (int) (siftable.getChance() *
-                                                    (float) ChancedOutputLogic.getMaxChancedValue()),
-                                            500);
-                                }
+                            builder.outputs(siftable.getDrop().getItemStack());
+                        } else {
+                            builder.chancedOutput(siftable.getDrop().getItemStack(),
+                                    (int) (siftable.getChance() *
+                                            (float) ChancedOutputLogic.getMaxChancedValue()),
+                                    500);
+                        }
                     if (LARGE_SIEVE_RECIPES.findRecipe(4, Collections.singletonList(stack), new ArrayList<>(), true) !=
                             null)
                         continue;

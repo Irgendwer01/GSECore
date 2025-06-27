@@ -50,3 +50,7 @@ gregtech.machine.energy_hatch.output_4a.mv.name=MV 4A Dynamo Hatch
 gregtech.machine.energy_hatch.output_16a.mv.name=MV 16A Dynamo Hatch
 gregtech.machine.large_sieve.name=Large Electric Sieve
 recipemap.large_electric_sieve.name=Large Electric Sieve
+
+multiblocktweaker.machine.greenhouse.name=Greenhouse
+recipemap.greenhouse.name=Greenhouse
+multiblocktweaker.machine.large_steam_hammer.name=Large Steam Hammer

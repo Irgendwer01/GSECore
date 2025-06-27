@@ -3,6 +3,9 @@ package com.irgendwer01.gsecore;
 import static gregtech.api.unification.ore.OrePrefix.Conditions.hasOreProperty;
 import static gregtech.api.unification.ore.OrePrefix.Flags.ENABLE_UNIFICATION;
 
+import net.minecraft.init.Blocks;
+import net.minecraft.item.ItemStack;
+import net.minecraftforge.event.world.BlockEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.EventPriority;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
@@ -45,5 +48,12 @@ public class EventBusSubscriber {
         oreNetherChunk.setAlternativeOreName(OrePrefix.oreNetherrack.name());
 
         MetaItems.addOrePrefix(oreChunk, oreEnderChunk, oreNetherChunk);
+    }
+
+    @SubscribeEvent(priority = EventPriority.HIGHEST)
+    public static void harvestDropsEvent(BlockEvent.HarvestDropsEvent event) {
+        if (event.getState().equals(Blocks.END_PORTAL_FRAME.getDefaultState())) {
+            event.getDrops().add(new ItemStack(Blocks.END_PORTAL_FRAME));
+        }
     }
 }

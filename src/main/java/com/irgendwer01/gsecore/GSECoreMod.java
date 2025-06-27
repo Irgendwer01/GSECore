@@ -5,6 +5,7 @@ import java.nio.file.Files;
 import java.util.Collections;
 import java.util.List;
 
+import net.minecraft.init.Blocks;
 import net.minecraftforge.fml.common.Loader;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;

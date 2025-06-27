@@ -2,6 +2,8 @@ package com.irgendwer01.gsecore.metatileentities;
 
 import static gregtech.common.metatileentities.MetaTileEntities.*;
 
+import com.irgendwer01.gsecore.metatileentities.multi.electric.MetaTileEntityGreenhouse;
+import com.irgendwer01.gsecore.metatileentities.multi.steam.MetaTileEntitySteamLargeHammer;
 import net.minecraft.util.ResourceLocation;
 
 import com.irgendwer01.gsecore.metatileentities.electric.MetaTileEntitySieve;
@@ -19,6 +21,8 @@ public class MetaTileEntities {
     public static MetaTileEntitySteamSieve STEAM_SIEVE_STEEL;
     public static MetaTileEntitySieve[] SIEVES = new MetaTileEntitySieve[GTValues.V.length - 1];
     public static MetaTileEntityLargeSieveMultiblock LARGE_SIEVE;
+    public static MetaTileEntityGreenhouse GREEN_HOUSE;
+    public static MetaTileEntitySteamLargeHammer LARGE_STEAM_HAMMER;
 
     public static MetaTileEntityEnergyHatch[] ENERGY_OUTPUT_HATCH_4A = new MetaTileEntityEnergyHatch[2]; // LV-MV
     public static MetaTileEntityEnergyHatch[] ENERGY_OUTPUT_HATCH_16A = new MetaTileEntityEnergyHatch[2]; // LV-MV
@@ -64,6 +68,10 @@ public class MetaTileEntities {
 
         LARGE_SIEVE = registerMetaTileEntity(4015,
                 new MetaTileEntityLargeSieveMultiblock(new ResourceLocation(GTValues.MODID, "large_sieve")));
+
+        GREEN_HOUSE = registerMetaTileEntity(32000, new MetaTileEntityGreenhouse(new ResourceLocation("multiblocktweaker", "greenhouse")));
+        LARGE_STEAM_HAMMER = registerMetaTileEntity(32001, new MetaTileEntitySteamLargeHammer(new ResourceLocation("multiblocktweaker", "large_steam_hammer")));
+
 
         ENERGY_OUTPUT_HATCH_4A[0] = registerMetaTileEntity(4016,
                 new GSEMetaTileEntityEnergyHatch(new ResourceLocation(GTValues.MODID, "energy_hatch.output_4a.lv"), 1,
