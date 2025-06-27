@@ -1,5 +1,18 @@
 package com.irgendwer01.gsecore.metatileentities.multi.steam;
 
+import java.util.List;
+
+import net.minecraft.block.state.IBlockState;
+import net.minecraft.item.ItemStack;
+import net.minecraft.util.EnumParticleTypes;
+import net.minecraft.util.ResourceLocation;
+import net.minecraft.world.World;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
+
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
+
 import gregtech.api.GTValues;
 import gregtech.api.capability.impl.SteamMultiWorkable;
 import gregtech.api.metatileentity.MetaTileEntity;
@@ -16,17 +29,6 @@ import gregtech.common.ConfigHolder;
 import gregtech.common.blocks.BlockBoilerCasing;
 import gregtech.common.blocks.BlockMetalCasing;
 import gregtech.common.blocks.MetaBlocks;
- import net.minecraft.block.state.IBlockState;
-import net.minecraft.item.ItemStack;
-import net.minecraft.util.EnumParticleTypes;
-import net.minecraft.util.ResourceLocation;
-import net.minecraft.world.World;
-import net.minecraftforge.fml.relauncher.Side;
-import net.minecraftforge.fml.relauncher.SideOnly;
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
-
-import java.util.List;
 
 public class MetaTileEntitySteamLargeHammer extends RecipeMapSteamMultiblockController {
 
@@ -54,7 +56,7 @@ public class MetaTileEntitySteamLargeHammer extends RecipeMapSteamMultiblockCont
                 .where('S', selfPredicate())
                 .where('X', states(getPipeState()).setMinGlobalLimited(4))
                 .where('C', states(getCasingState()).setMinGlobalLimited(38)
-                .or(autoAbilities(true, false, true, true, false)))
+                        .or(autoAbilities(true, false, true, true, false)))
                 .where('#', air())
                 .build();
     }
