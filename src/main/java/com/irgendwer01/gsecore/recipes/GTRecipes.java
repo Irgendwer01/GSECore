@@ -42,6 +42,8 @@ public class GTRecipes {
             new SimpleRecipeBuilder().duration(100).EUt(4), false, false)
                     .setSound(SoundEvents.BLOCK_SAND_PLACE)
                     .setProgressBar(GuiTextures.PROGRESS_BAR_SIFT, ProgressWidget.MoveType.VERTICAL_INVERTED);
+    public static final RecipeMap<SimpleRecipeBuilder> GREENHOUSE_RECIPES = new RecipeMap<>("greenhouse", 3, 4, 1, 0,
+            new SimpleRecipeBuilder(), false);
 
     public static void registerExNihiloRecipes() {
         // Mirror Ex Nihilo Sifter recipes to Sifter RecipeMap

@@ -19,6 +19,8 @@ import gregtech.api.unification.OreDictUnifier;
 import gregtech.api.unification.material.Materials;
 import gregtech.api.unification.ore.OrePrefix;
 import gregtech.api.unification.stack.UnificationEntry;
+import gregtech.common.blocks.BlockBoilerCasing;
+import gregtech.common.blocks.BlockMetalCasing;
 import gregtech.common.blocks.MetaBlocks;
 import gregtech.common.metatileentities.MetaTileEntities;
 import gregtech.loaders.recipe.MetaTileEntityLoader;
@@ -51,10 +53,23 @@ public class CraftingRecipes {
                 'B', new UnificationEntry(OrePrefix.pipeSmallFluid, Materials.TinAlloy), 'M',
                 STEAM_SIEVE_BRONZE.getStackForm(), 'W', new UnificationEntry(OrePrefix.plate, Materials.WroughtIron),
                 'P', new UnificationEntry(OrePrefix.plate, Materials.Steel));
+
         ModHandler.addShapedRecipe(true, "large_sieve", LARGE_SIEVE.getStackForm(), "PCP", "CMC", "WWW",
                 'P', PISTON.getIngredient(2),
                 'M', SIEVES[1].getStackForm(), 'C', CIRCUIT.getIngredient(2),
                 'W', new UnificationEntry(OrePrefix.cableGtSingle, Materials.Copper));
+
+        ModHandler.addShapedRecipe(true, "green_house", GREEN_HOUSE.getStackForm(), "RMR", "CHC", "WCW",
+                'R', ROBOT_ARM.getIngredient(2),
+                'M', MOTOR.getIngredient(2), 'C', CIRCUIT.getIngredient(2),
+                'W', new UnificationEntry(OrePrefix.cableGtSingle, Materials.Copper),
+                'H', HULL.getIngredient(2));
+
+        ModHandler.addShapedRecipe(true, "large_steam_hammer", LARGE_STEAM_HAMMER.getStackForm(), "CGC", "BMB", "CGC",
+                'M', MetaTileEntities.STEAM_HAMMER_BRONZE.getStackForm(), 'B',
+                MetaBlocks.BOILER_CASING.getItemVariant(BlockBoilerCasing.BoilerCasingType.BRONZE_PIPE),
+                'C', MetaBlocks.METAL_CASING.getItemVariant(BlockMetalCasing.MetalCasingType.BRONZE_BRICKS),
+                'G', new UnificationEntry(OrePrefix.gear, Materials.Potin));
 
         // Pebbles
         ModHandler.removeRecipeByName("exnihilocreatio:item_mesh_2");
