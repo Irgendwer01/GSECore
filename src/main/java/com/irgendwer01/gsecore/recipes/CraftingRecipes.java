@@ -14,6 +14,7 @@ import com.irgendwer01.gsecore.GSECoreMod;
 
 import exnihilocreatio.ModBlocks;
 import exnihilocreatio.ModItems;
+import gregicality.multiblocks.api.unification.GCYMMaterials;
 import gregtech.api.recipes.ModHandler;
 import gregtech.api.unification.OreDictUnifier;
 import gregtech.api.unification.material.Materials;
@@ -58,18 +59,22 @@ public class CraftingRecipes {
                 'P', PISTON.getIngredient(2),
                 'M', SIEVES[1].getStackForm(), 'C', CIRCUIT.getIngredient(2),
                 'W', new UnificationEntry(OrePrefix.cableGtSingle, Materials.Copper));
-
         ModHandler.addShapedRecipe(true, "green_house", GREEN_HOUSE.getStackForm(), "RMR", "CHC", "WCW",
                 'R', ROBOT_ARM.getIngredient(2),
                 'M', MOTOR.getIngredient(2), 'C', CIRCUIT.getIngredient(2),
                 'W', new UnificationEntry(OrePrefix.cableGtSingle, Materials.Copper),
                 'H', HULL.getIngredient(2));
-
         ModHandler.addShapedRecipe(true, "large_steam_hammer", LARGE_STEAM_HAMMER.getStackForm(), "CGC", "BMB", "CGC",
                 'M', MetaTileEntities.STEAM_HAMMER_BRONZE.getStackForm(), 'B',
                 MetaBlocks.BOILER_CASING.getItemVariant(BlockBoilerCasing.BoilerCasingType.BRONZE_PIPE),
                 'C', MetaBlocks.METAL_CASING.getItemVariant(BlockMetalCasing.MetalCasingType.BRONZE_BRICKS),
                 'G', new UnificationEntry(OrePrefix.gear, Materials.Potin));
+        ModHandler.addShapedRecipe(true, "large_fisher", LARGE_FISHER.getStackForm(), "PCP", "BMB", "PGP",
+                'M', MetaTileEntities.FISHER[3].getStackForm(), 'B',
+                PISTON.getIngredient(4),
+                'C', CIRCUIT.getIngredient(4),
+                'P', new UnificationEntry(OrePrefix.plate, GCYMMaterials.HSLASteel),
+                'G', new UnificationEntry(OrePrefix.cableGtSingle, Materials.Platinum));
 
         // Pebbles
         ModHandler.removeRecipeByName("exnihilocreatio:item_mesh_2");

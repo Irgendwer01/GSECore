@@ -5,6 +5,7 @@ import static gregtech.api.recipes.RecipeMaps.FORGE_HAMMER_RECIPES;
 
 import java.util.*;
 
+import net.minecraft.init.Items;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.Ingredient;
@@ -44,8 +45,10 @@ public class GTRecipes {
                     .setProgressBar(GuiTextures.PROGRESS_BAR_SIFT, ProgressWidget.MoveType.VERTICAL_INVERTED);
     public static final RecipeMap<SimpleRecipeBuilder> GREENHOUSE_RECIPES = new RecipeMap<>("greenhouse", 3, 4, 1, 0,
             new SimpleRecipeBuilder(), false);
+    public static final RecipeMap<SimpleRecipeBuilder> FISHER_RECIPES = new RecipeMap<>("fisher", 1, 4, 0, 0,
+            new SimpleRecipeBuilder(), false);
 
-    public static void registerExNihiloRecipes() {
+    public static void registerRecipes() {
         // Mirror Ex Nihilo Sifter recipes to Sifter RecipeMap
         for (SieveRecipe recipe : ExNihiloRegistryManager.SIEVE_REGISTRY.getRecipeList()) {
             for (ItemStack stack : recipe.getSievables()) {
@@ -95,6 +98,16 @@ public class GTRecipes {
                 if (!large_builder.getAllItemOutputs().isEmpty())
                     large_builder.buildAndRegister();
             }
+
+            FISHER_RECIPES.recipeBuilder()
+                    .input(Items.STRING)
+                    .chancedOutput(new ItemStack(Items.FISH), 2600, 300)
+                    .chancedOutput(new ItemStack(Items.FISH, 1, 1), 2200, 300)
+                    .chancedOutput(new ItemStack(Items.FISH, 1, 2), 2600, 300)
+                    .chancedOutput(new ItemStack(Items.FISH, 1, 3), 3000, 300)
+                    .EUt(2040)
+                    .duration(100)
+                    .buildAndRegister();
         }
 
         // Mirror Ex Nihilo Crucible recipes to Fluid Extractor RecipeMap

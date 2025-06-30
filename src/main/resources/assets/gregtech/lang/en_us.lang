@@ -53,4 +53,8 @@ recipemap.large_electric_sieve.name=Large Electric Sieve
 
 multiblocktweaker.machine.greenhouse.name=Greenhouse
 recipemap.greenhouse.name=Greenhouse
+
 multiblocktweaker.machine.large_steam_hammer.name=Large Steam Hammer
+
+multiblocktweaker.machine.large_fisher.name=Large Fisher
+recipemap.fisher.name=Large Fisher

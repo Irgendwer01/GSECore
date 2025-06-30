@@ -55,7 +55,7 @@ public class GSECoreMod implements ILateMixinLoader {
     public void init(FMLInitializationEvent event) {
         ExNihiloRecipes.registerRecipes();
         CraftingRecipes.RegisterCraftingRecipes();
-        GTRecipes.registerExNihiloRecipes();
+        GTRecipes.registerRecipes();
     }
 
     @Override
