@@ -15,6 +15,6 @@ public class MixinMetaTileEntityLargeBoiler {
                        target = "Lgregtech/common/metatileentities/multi/BoilerType;runtimeBoost(I)I"),
               remap = false)
     private int injected(BoilerType boilerType, int e) {
-        return boilerType.runtimeBoost(200);
+        return boilerType.runtimeBoost(100);
     }
 }

@@ -4,6 +4,7 @@ import static gregtech.common.metatileentities.MetaTileEntities.*;
 
 import net.minecraft.util.ResourceLocation;
 
+import com.irgendwer01.gsecore.GSEConfig;
 import com.irgendwer01.gsecore.metatileentities.electric.MetaTileEntitySieve;
 import com.irgendwer01.gsecore.metatileentities.multi.electric.MetaTileEntityGreenhouse;
 import com.irgendwer01.gsecore.metatileentities.multi.electric.MetaTileEntityLargeFisher;
@@ -73,6 +74,7 @@ public class MetaTileEntities {
 
         GREEN_HOUSE = registerMetaTileEntity(32000,
                 new MetaTileEntityGreenhouse(new ResourceLocation("multiblocktweaker", "greenhouse")));
+
         LARGE_STEAM_HAMMER = registerMetaTileEntity(32001,
                 new MetaTileEntitySteamLargeHammer(new ResourceLocation("multiblocktweaker", "large_steam_hammer")));
         LARGE_FISHER = registerMetaTileEntity(32002,
