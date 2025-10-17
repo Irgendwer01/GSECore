@@ -22,11 +22,9 @@
  * For more details, see https://docs.gradle.org/8.0.1/userguide/java_library_plugin.html#sec:java_library_configurations_graph
  */
 dependencies {
-    implementation rfg.deobf("curse.maven:gcym-564858:5619513")
-    implementation rfg.deobf("curse.maven:gregtech-ce-unofficial-557242:5519022")
     implementation rfg.deobf("curse.maven:ex-nihilo-creatio-274456:2817545")
     implementation rfg.deobf("curse.maven:forgelin-248453:2785465")
-    compileOnlyApi rfg.deobf("curse.maven:groovyscript-687577:5635093")
+    implementation rfg.deobf("curse.maven:groovyscript-687577:7092147")
     compileOnlyApi "CraftTweaker2:CraftTweaker2-MC1120-Main:1.12-4.1.20.684"
     compileOnlyApi rfg.deobf("curse.maven:AE2-570458:6302098")
     compileOnlyApi rfg.deobf("curse.maven:Forestry-59751:5903382")
@@ -35,5 +33,8 @@ dependencies {
     implementation rfg.deobf("curse.maven:effortlessbuilding-302113:2847346")
     implementation rfg.deobf("curse.maven:VIC-257655:2666967")
     implementation rfg.deobf("curse.maven:openblocks-228816:2699056")
+    implementation rfg.deobf("curse.maven:modularui-624243:6206809")
     compileOnly    rfg.deobf('curse.maven:pw-963010:6420138')
+    implementation rfg.deobf('com.cleanroommc:configanytime:3.0')
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
 }

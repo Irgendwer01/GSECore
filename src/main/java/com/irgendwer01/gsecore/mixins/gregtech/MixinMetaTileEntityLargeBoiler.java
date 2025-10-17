@@ -1,5 +1,6 @@
 package com.irgendwer01.gsecore.mixins.gregtech;
 
+import com.irgendwer01.gsecore.GSEConfig;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Redirect;
@@ -15,6 +16,9 @@ public class MixinMetaTileEntityLargeBoiler {
                        target = "Lgregtech/common/metatileentities/multi/BoilerType;runtimeBoost(I)I"),
               remap = false)
     private int injected(BoilerType boilerType, int e) {
-        return boilerType.runtimeBoost(100);
+        if (GSEConfig.largeBoilerHigherEfficiency) {
+            return boilerType.runtimeBoost(100);
+        }
+        return boilerType.runtimeBoost(20);
     }
 }

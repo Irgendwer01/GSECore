@@ -1,23 +1,10 @@
 package com.irgendwer01.gsecore.recipes;
 
 import static com.irgendwer01.gsecore.metatileentities.MetaTileEntities.*;
-import static gregtech.api.unification.ore.OrePrefix.stick;
-import static gregtech.api.unification.ore.OrePrefix.stone;
-import static gregtech.common.blocks.BlockSteamCasing.SteamCasingType.BRONZE_HULL;
-import static gregtech.loaders.recipe.CraftingComponent.*;
-
-import net.minecraft.init.Blocks;
-import net.minecraft.init.Items;
-import net.minecraft.item.ItemStack;
 
 import com.irgendwer01.gsecore.GSEConfig;
-import com.irgendwer01.gsecore.GSECoreMod;
-
-import exnihilocreatio.ModBlocks;
-import exnihilocreatio.ModItems;
-import gregicality.multiblocks.api.unification.GCYMMaterials;
+import gregicality.multiblocks.common.metatileentities.GCYMMetaTileEntities;
 import gregtech.api.recipes.ModHandler;
-import gregtech.api.unification.OreDictUnifier;
 import gregtech.api.unification.material.Materials;
 import gregtech.api.unification.ore.OrePrefix;
 import gregtech.api.unification.stack.UnificationEntry;
@@ -25,82 +12,28 @@ import gregtech.common.blocks.BlockBoilerCasing;
 import gregtech.common.blocks.BlockMetalCasing;
 import gregtech.common.blocks.MetaBlocks;
 import gregtech.common.metatileentities.MetaTileEntities;
-import gregtech.loaders.recipe.MetaTileEntityLoader;
 
 public class CraftingRecipes {
 
     public static void RegisterCraftingRecipes() {
+
         // Machine Recipes
-        MetaTileEntityLoader.registerMachineRecipe(SIEVES, "CPC", "FMF", "OSO", 'M', HULL, 'C', CIRCUIT, 'O', CABLE,
-                'F', CONVEYOR, 'S', new ItemStack(ModBlocks.sieve), 'P', PISTON);
-
-        ModHandler.addShapedRecipe(true, "4a_lv_dynamo_hatch", ENERGY_OUTPUT_HATCH_4A[0].getStackForm(), "C C", "CEC",
-                'C', OreDictUnifier.get(OrePrefix.cableGtQuadruple, Materials.Tin), 'E',
-                MetaTileEntities.ENERGY_OUTPUT_HATCH[1].getStackForm());
-        ModHandler.addShapedRecipe(true, "16a_lv_dynamo_hatch", ENERGY_OUTPUT_HATCH_16A[0].getStackForm(), "CTC", "CEC",
-                'C', OreDictUnifier.get(OrePrefix.cableGtOctal, Materials.Tin), 'E',
-                ENERGY_OUTPUT_HATCH_4A[0].getStackForm(), 'T', MetaTileEntities.TRANSFORMER[1].getStackForm());
-        ModHandler.addShapedRecipe(true, "4a_mv_dynamo_hatch", ENERGY_OUTPUT_HATCH_4A[1].getStackForm(), "C C", "CEC",
-                'C', OreDictUnifier.get(OrePrefix.cableGtQuadruple, Materials.Copper), 'E',
-                MetaTileEntities.ENERGY_OUTPUT_HATCH[2].getStackForm());
-        ModHandler.addShapedRecipe(true, "16a_mv_dynamo_hatch", ENERGY_OUTPUT_HATCH_16A[1].getStackForm(), "CTC", "CEC",
-                'C', OreDictUnifier.get(OrePrefix.cableGtOctal, Materials.Copper), 'E',
-                ENERGY_OUTPUT_HATCH_4A[1].getStackForm(), 'T', MetaTileEntities.TRANSFORMER[2].getStackForm());
-
-        ModHandler.addShapedRecipe(true, "steam_sieve_bronze", STEAM_SIEVE_BRONZE.getStackForm(), "BPB", "BMB", "BSB",
-                'B', new UnificationEntry(OrePrefix.pipeSmallFluid, Materials.Bronze), 'M',
-                MetaBlocks.STEAM_CASING.getItemVariant(BRONZE_HULL), 'S', new ItemStack(ModBlocks.sieve), 'P',
-                Blocks.PISTON);
-        ModHandler.addShapedRecipe(true, "steam_sieve_steel", STEAM_SIEVE_STEEL.getStackForm(), "BPB", "WMW", "BBB",
-                'B', new UnificationEntry(OrePrefix.pipeSmallFluid, Materials.TinAlloy), 'M',
-                STEAM_SIEVE_BRONZE.getStackForm(), 'W', new UnificationEntry(OrePrefix.plate, Materials.WroughtIron),
-                'P', new UnificationEntry(OrePrefix.plate, Materials.Steel));
-
-        ModHandler.addShapedRecipe(true, "large_sieve", LARGE_SIEVE.getStackForm(), "PCP", "CMC", "WWW",
-                'P', PISTON.getIngredient(2),
-                'M', SIEVES[1].getStackForm(), 'C', CIRCUIT.getIngredient(2),
-                'W', new UnificationEntry(OrePrefix.cableGtSingle, Materials.Copper));
-
-        ModHandler.addShapedRecipe(true, "green_house", GREEN_HOUSE.getStackForm(), "RMR", "CHC", "WCW",
-                'R', ROBOT_ARM.getIngredient(2),
-                'M', MOTOR.getIngredient(2), 'C', CIRCUIT.getIngredient(2),
-                'W', new UnificationEntry(OrePrefix.cableGtSingle, Materials.Copper),
-                'H', HULL.getIngredient(2));
-
-        ModHandler.addShapedRecipe(true, "large_steam_hammer", LARGE_STEAM_HAMMER.getStackForm(), "CGC", "BMB", "CGC",
-                'M', MetaTileEntities.STEAM_HAMMER_BRONZE.getStackForm(), 'B',
-                MetaBlocks.BOILER_CASING.getItemVariant(BlockBoilerCasing.BoilerCasingType.BRONZE_PIPE),
-                'C', MetaBlocks.METAL_CASING.getItemVariant(BlockMetalCasing.MetalCasingType.BRONZE_BRICKS),
-                'G', new UnificationEntry(OrePrefix.gear, Materials.Potin));
-        ModHandler.addShapedRecipe(true, "large_fisher", LARGE_FISHER.getStackForm(), "PCP", "BMB", "PGP",
-                'M', MetaTileEntities.FISHER[3].getStackForm(), 'B',
-                PISTON.getIngredient(4),
-                'C', CIRCUIT.getIngredient(4),
-                'P', new UnificationEntry(OrePrefix.plate, GCYMMaterials.HSLASteel),
-                'G', new UnificationEntry(OrePrefix.cableGtSingle, Materials.Platinum));
-
-        // Pebbles
-        ModHandler.removeRecipeByName("exnihilocreatio:item_mesh_2");
-        ModHandler.addShapedRecipe("bronze_mesh", new ItemStack(ModItems.mesh, 1, 2), "TST", "STS", "TST",
-                'T', new UnificationEntry(stick, Materials.Bronze),
-                'S', new ItemStack(Items.STRING));
-        ModHandler.removeRecipeByName("exnihilocreatio:item_mesh_3");
-        ModHandler.addShapedRecipe("steel_mesh", new ItemStack(ModItems.mesh, 1, 3), "TST", "STS", "TST",
-                'T', new UnificationEntry(stick, Materials.Steel),
-                'S', new ItemStack(Items.STRING));
-        ModHandler.removeRecipeByName("exnihilocreatio:item_mesh_4");
-        ModHandler.addShapedRecipe("aluminium_mesh", new ItemStack(ModItems.mesh, 1, 4), "TST", "STS", "TST",
-                'T', new UnificationEntry(stick, Materials.Aluminium),
-                'S', new ItemStack(Items.STRING));
-
-        ModHandler.addShapedRecipe("basalt", OreDictUnifier.get(stone, Materials.Basalt, 1), "PP", "PP", 'P',
-                new ItemStack(GSECoreMod.GTPebbles, 1, 0));
-        ModHandler.addShapedRecipe("black_granite", OreDictUnifier.get(stone, Materials.GraniteBlack, 1), "PP", "PP",
-                'P',
-                new ItemStack(GSECoreMod.GTPebbles, 1, 1));
-        ModHandler.addShapedRecipe("marble", OreDictUnifier.get(stone, Materials.Marble, 1), "PP", "PP", 'P',
-                new ItemStack(GSECoreMod.GTPebbles, 1, 2));
-        ModHandler.addShapedRecipe("red_granite", OreDictUnifier.get(stone, Materials.GraniteRed, 1), "PP", "PP", 'P',
-                new ItemStack(GSECoreMod.GTPebbles, 1, 3));
+        if (GSEConfig.enableLSH) {
+            ModHandler.addShapedRecipe(true, "large_steam_hammer", LARGE_STEAM_HAMMER.getStackForm(), "CGC", "BMB", "CGC",
+                    'M', MetaTileEntities.STEAM_HAMMER_BRONZE.getStackForm(), 'B',
+                    MetaBlocks.BOILER_CASING.getItemVariant(BlockBoilerCasing.BoilerCasingType.BRONZE_PIPE),
+                    'C', MetaBlocks.METAL_CASING.getItemVariant(BlockMetalCasing.MetalCasingType.BRONZE_BRICKS),
+                    'G', new UnificationEntry(OrePrefix.gear, Materials.Potin));
+        }
+        if (GSEConfig.harderSteamEngine) {
+            ModHandler.removeRecipeByOutput(GCYMMetaTileEntities.STEAM_ENGINE.getStackForm());
+            ModHandler.addShapedRecipe(true, "industrial_steam_engine", GCYMMetaTileEntities.STEAM_ENGINE.getStackForm(), "PBP", "BMB", "GSG",
+                    'P', new UnificationEntry(OrePrefix.pipeHugeFluid, Materials.Potin),
+                    'B', new UnificationEntry(OrePrefix.plate, Materials.Brass),
+                    'M', MetaTileEntities.STEAM_TURBINE[1].getStackForm(),
+                    'G', new UnificationEntry(OrePrefix.gear, Materials.Bronze),
+                    'S', new UnificationEntry(OrePrefix.gear, Materials.Steel));
+        }
     }
+
 }
