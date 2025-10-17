@@ -1,9 +1,10 @@
 package com.irgendwer01.gsecore.mixins.gregtech;
 
-import com.irgendwer01.gsecore.GSEConfig;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Redirect;
+
+import com.irgendwer01.gsecore.GSEConfig;
 
 import gregtech.common.metatileentities.multi.BoilerType;
 import gregtech.common.metatileentities.multi.MetaTileEntityLargeBoiler;

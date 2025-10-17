@@ -2,7 +2,6 @@ package com.irgendwer01.gsecore;
 
 import java.io.*;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 import net.minecraftforge.fml.common.Mod;
@@ -37,19 +36,22 @@ public class GSECoreMod implements ILateMixinLoader {
 
     @Override
     public List<String> getMixinConfigs() {
-        return new ArrayList<>() {{
-            if (GSEConfig.largeBoilerHigherEfficiency) {
-                add("mixins.gsecore.boiler.json");
+        return new ArrayList<>() {
+
+            {
+                if (GSEConfig.largeBoilerHigherEfficiency) {
+                    add("mixins.gsecore.boiler.json");
+                }
+                if (GSEConfig.harderSteamEngine) {
+                    add("mixins.gsecore.steamengine.json");
+                }
+                if (GSEConfig.blockBreakerNeedsInventory) {
+                    add("mixins.gsecore.blockbreaker.json");
+                }
+                if (GSEConfig.gasCollectorPW) {
+                    add("mixins.gsecore.gascollector.json");
+                }
             }
-            if (GSEConfig.harderSteamEngine) {
-                add("mixins.gsecore.steamengine.json");
-            }
-            if (GSEConfig.blockBreakerNeedsInventory) {
-                add("mixins.gsecore.blockbreaker.json");
-            }
-            if (GSEConfig.gasCollectorPW) {
-                add("mixins.gsecore.gascollector.json");
-            }
-        }};
+        };
     }
 }

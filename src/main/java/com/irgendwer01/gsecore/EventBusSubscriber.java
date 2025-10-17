@@ -1,8 +1,5 @@
 package com.irgendwer01.gsecore;
 
-import exnihilocreatio.ModFluids;
-import gregtech.api.GregTechAPI;
-import gregtech.api.metatileentity.registry.MTEManager;
 import net.minecraft.block.BlockStone;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
@@ -16,10 +13,14 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.EventPriority;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
+import exnihilocreatio.ModFluids;
+import gregtech.api.GregTechAPI;
+import gregtech.api.metatileentity.registry.MTEManager;
 import gregtech.api.unification.material.Materials;
 import gregtech.api.unification.material.event.MaterialEvent;
 import gregtech.api.unification.material.properties.OreProperty;
 import gregtech.api.unification.material.properties.PropertyKey;
+
 @Mod.EventBusSubscriber
 public class EventBusSubscriber {
 
@@ -49,10 +50,11 @@ public class EventBusSubscriber {
             BlockPos lavaPos = event.getLiquidPos(), witchWaterPos = null;
             World world = event.getWorld();
             for (BlockPos pos : new BlockPos[] { lavaPos.east(), lavaPos.west(), lavaPos.north(), lavaPos.south() })
-                if (world.getBlockState(pos).getBlock() == ModFluids.blockWitchwater || world.getBlockState(pos).getBlock() == Blocks.FLOWING_WATER) {
-                    witchWaterPos = pos;
-                    break;
-                }
+                if (world.getBlockState(pos).getBlock() == ModFluids.blockWitchwater ||
+                        world.getBlockState(pos).getBlock() == Blocks.FLOWING_WATER) {
+                            witchWaterPos = pos;
+                            break;
+                        }
             if (witchWaterPos != null) {
                 switch (world.getBlockState(witchWaterPos).getBlock()
                         .getMetaFromState(world.getBlockState(witchWaterPos))) {
@@ -95,7 +97,7 @@ public class EventBusSubscriber {
         }
     }
 
-    //Overworld as spectator only (if enabled)
+    // Overworld as spectator only (if enabled)
     @SubscribeEvent(priority = EventPriority.HIGHEST)
     public static void onDimensionEnter(EntityJoinWorldEvent event) {
         if (GSEConfig.owspectatoronly && event.getEntity() instanceof EntityPlayer player) {

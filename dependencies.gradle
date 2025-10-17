@@ -34,7 +34,7 @@ dependencies {
     implementation rfg.deobf("curse.maven:VIC-257655:2666967")
     implementation rfg.deobf("curse.maven:openblocks-228816:2699056")
     implementation rfg.deobf("curse.maven:modularui-624243:6206809")
-    compileOnly    rfg.deobf('curse.maven:pw-963010:6420138')
+    implementation rfg.deobf('curse.maven:pw-963010:6420138')
     implementation rfg.deobf('com.cleanroommc:configanytime:3.0')
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 }

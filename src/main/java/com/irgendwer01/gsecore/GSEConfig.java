@@ -1,7 +1,8 @@
 package com.irgendwer01.gsecore;
 
-import com.cleanroommc.configanytime.ConfigAnytime;
 import net.minecraftforge.common.config.Config;
+
+import com.cleanroommc.configanytime.ConfigAnytime;
 
 @Config(modid = Tags.MODID)
 public class GSEConfig {
@@ -28,7 +29,7 @@ public class GSEConfig {
     public static boolean enableLSH = false;
 
     @Config.Comment("Allows the Gas Collector to work in Personal Worlds")
-    public static boolean gasCollectorPW = false;
+    public static boolean gasCollectorPW = true;
 
     static {
         ConfigAnytime.register(GSEConfig.class);
