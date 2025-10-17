@@ -27,6 +27,9 @@ public class GSEConfig {
     @Config.Comment("Enables the Large Steam (Forge) Hammer")
     public static boolean enableLSH = false;
 
+    @Config.Comment("Allows the Gas Collector to work in Personal Worlds")
+    public static boolean gasCollectorPW = false;
+
     static {
         ConfigAnytime.register(GSEConfig.class);
     }

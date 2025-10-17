@@ -47,6 +47,9 @@ public class GSECoreMod implements ILateMixinLoader {
             if (GSEConfig.blockBreakerNeedsInventory) {
                 add("mixins.gsecore.blockbreaker.json");
             }
+            if (GSEConfig.gasCollectorPW) {
+                add("mixins.gsecore.gascollector.json");
+            }
         }};
     }
 }
