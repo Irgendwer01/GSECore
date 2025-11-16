@@ -4,14 +4,18 @@ import net.minecraft.block.BlockStone;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.crafting.IRecipe;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.GameType;
 import net.minecraft.world.World;
+import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.event.entity.EntityJoinWorldEvent;
 import net.minecraftforge.event.world.BlockEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.EventPriority;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+
+import com.irgendwer01.gsecore.recipes.SieveRecipes;
 
 import exnihilocreatio.ModFluids;
 import gregtech.api.GregTechAPI;
@@ -46,12 +50,11 @@ public class EventBusSubscriber {
         if (!GSEConfig.customStoneGen) {
             return;
         }
-        if (event.getOriginalState().getBlock() == Blocks.FLOWING_LAVA) {
+        if (event.getOriginalState().getBlock() == Blocks.LAVA || event.getOriginalState().getBlock() == Blocks.FLOWING_LAVA) {
             BlockPos lavaPos = event.getLiquidPos(), witchWaterPos = null;
             World world = event.getWorld();
             for (BlockPos pos : new BlockPos[] { lavaPos.east(), lavaPos.west(), lavaPos.north(), lavaPos.south() })
-                if (world.getBlockState(pos).getBlock() == ModFluids.blockWitchwater ||
-                        world.getBlockState(pos).getBlock() == Blocks.FLOWING_WATER) {
+                if (world.getBlockState(pos).getBlock() == ModFluids.blockWitchwater) {
                             witchWaterPos = pos;
                             break;
                         }
@@ -106,6 +109,13 @@ public class EventBusSubscriber {
             } else if (!player.isAllowEdit()) {
                 player.setGameType(GameType.SURVIVAL);
             }
+        }
+    }
+
+    @SubscribeEvent(priority = EventPriority.LOWEST)
+    public static void registerRecipes(RegistryEvent.Register<IRecipe> event) {
+        if (GSEConfig.gcylDrops) {
+            SieveRecipes.init();
         }
     }
 }

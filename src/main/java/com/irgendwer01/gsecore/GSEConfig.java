@@ -29,7 +29,10 @@ public class GSEConfig {
     public static boolean enableLSH = false;
 
     @Config.Comment("Allows the Gas Collector to work in Personal Worlds")
-    public static boolean gasCollectorPW = true;
+    public static boolean gasCollectorPW = false;
+
+    @Config.Comment("Adds GCYL drops to the Ex Nihilo sifting table and some extra additions")
+    public static boolean gcylDrops = false;
 
     static {
         ConfigAnytime.register(GSEConfig.class);
