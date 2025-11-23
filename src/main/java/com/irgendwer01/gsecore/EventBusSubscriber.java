@@ -50,14 +50,15 @@ public class EventBusSubscriber {
         if (!GSEConfig.customStoneGen) {
             return;
         }
-        if (event.getOriginalState().getBlock() == Blocks.LAVA || event.getOriginalState().getBlock() == Blocks.FLOWING_LAVA) {
+        if (event.getOriginalState().getBlock() == Blocks.LAVA ||
+                event.getOriginalState().getBlock() == Blocks.FLOWING_LAVA) {
             BlockPos lavaPos = event.getLiquidPos(), witchWaterPos = null;
             World world = event.getWorld();
             for (BlockPos pos : new BlockPos[] { lavaPos.east(), lavaPos.west(), lavaPos.north(), lavaPos.south() })
                 if (world.getBlockState(pos).getBlock() == ModFluids.blockWitchwater) {
-                            witchWaterPos = pos;
-                            break;
-                        }
+                    witchWaterPos = pos;
+                    break;
+                }
             if (witchWaterPos != null) {
                 switch (world.getBlockState(witchWaterPos).getBlock()
                         .getMetaFromState(world.getBlockState(witchWaterPos))) {
