@@ -29,8 +29,8 @@ public class SieveRecipes {
                 OreDictUnifier.get(ExNihiloModule.oreEnderChunk, GCYLMaterials.PlatinumMetallicPowder), 4, 0.005F);
         SieveDrops.addDrop(ModBlocks.netherrackCrushed,
                 OreDictUnifier.get(ExNihiloModule.oreNetherChunk, Materials.Glowstone), 3, 0.11F);
-        SieveDrops.addDrop("sand", Items.PRISMARINE_CRYSTALS.getDefaultInstance(), 4, 0.1F);
-        SieveDrops.addDrop("sand", Items.PRISMARINE_SHARD.getDefaultInstance(), 4, 0.1F);
-        SieveDrops.addDrop(ModBlocks.endstoneCrushed, Items.CHORUS_FRUIT_POPPED.getDefaultInstance(), 4, 0.1F);
+        SieveDrops.addDrop("sand", new ItemStack(Items.PRISMARINE_CRYSTALS), 4, 0.1F);
+        SieveDrops.addDrop("sand", new ItemStack(Items.PRISMARINE_SHARD), 4, 0.1F);
+        SieveDrops.addDrop(ModBlocks.endstoneCrushed, new ItemStack(Items.CHORUS_FRUIT_POPPED), 4, 0.1F);
     }
 }
