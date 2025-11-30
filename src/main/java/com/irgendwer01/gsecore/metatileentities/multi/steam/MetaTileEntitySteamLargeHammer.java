@@ -48,11 +48,11 @@ public class MetaTileEntitySteamLargeHammer extends RecipeMapSteamMultiblockCont
     @Override
     protected @NotNull BlockPattern createStructurePattern() {
         return FactoryBlockPattern.start()
-                .aisle("#CCC#", "     ", "     ", "     ", "     ", "     ", "     ")
-                .aisle("CCCCC", "#CCC#", "#####", "#####", "#####", "##C##", "     ")
-                .aisle("CCCCC", "CC#CC", "C###C", "C#X#C", "C#X#C", "CCXCC", "##X##")
-                .aisle("CCCCC", "#CSC#", "#####", "#####", "#####", "##C##", "     ")
-                .aisle("#CCC#", "     ", "     ", "     ", "     ", "     ", "     ")
+                .aisle(" CCC ", "     ", "     ", "     ", "     ", "     ", "     ")
+                .aisle("CCCCC", " CCC ", "     ", "     ", "     ", "  C  ", "     ")
+                .aisle("CCCCC", "CC CC", "C   C", "C X C", "C X C", "CCXCC", "  X  ")
+                .aisle("CCCCC", " CSC ", "     ", "     ", "     ", "  C  ", "     ")
+                .aisle(" CCC ", "     ", "     ", "     ", "     ", "     ", "     ")
                 .where('S', selfPredicate())
                 .where('X', states(getPipeState()).setMinGlobalLimited(4))
                 .where('C', states(getCasingState()).setMinGlobalLimited(38)
