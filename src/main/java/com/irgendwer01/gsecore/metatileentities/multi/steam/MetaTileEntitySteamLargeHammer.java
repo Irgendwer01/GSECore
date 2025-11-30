@@ -57,7 +57,6 @@ public class MetaTileEntitySteamLargeHammer extends RecipeMapSteamMultiblockCont
                 .where('X', states(getPipeState()).setMinGlobalLimited(4))
                 .where('C', states(getCasingState()).setMinGlobalLimited(38)
                         .or(autoAbilities(true, false, true, true, false)))
-                .where('#', air())
                 .build();
     }
 
