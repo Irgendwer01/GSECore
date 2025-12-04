@@ -34,6 +34,9 @@ public class GSEConfig {
     @Config.Comment("Adds GCYL drops to the Ex Nihilo sifting table and some extra additions")
     public static boolean gcylDrops = false;
 
+    @Config.Comment("Prevents the Storage Scanner to scan stuff like cables, pipes etc")
+    public static boolean storageScannerBlacklist = true;
+
     static {
         ConfigAnytime.register(GSEConfig.class);
     }

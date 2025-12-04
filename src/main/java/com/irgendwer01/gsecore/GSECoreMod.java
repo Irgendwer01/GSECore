@@ -3,6 +3,7 @@ package com.irgendwer01.gsecore;
 import java.util.ArrayList;
 import java.util.List;
 
+import net.minecraftforge.fml.common.Loader;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
@@ -21,6 +22,8 @@ import zone.rong.mixinbooter.ILateMixinLoader;
      dependencies = "required-after:gregtech;")
 public class GSECoreMod implements ILateMixinLoader {
 
+    public static boolean isOpenBlocksLoaded;
+    public static boolean isIDLoaded;
     public static final Logger logger = LogManager.getLogger("GSECore");
 
     @Mod.EventHandler
@@ -30,6 +33,8 @@ public class GSECoreMod implements ILateMixinLoader {
 
     @Mod.EventHandler
     public void init(FMLInitializationEvent event) {
+        isOpenBlocksLoaded = Loader.isModLoaded("openblocks");
+        isIDLoaded = Loader.isModLoaded("integrateddynamics");
         CraftingRecipes.RegisterCraftingRecipes();
     }
 
@@ -38,6 +43,9 @@ public class GSECoreMod implements ILateMixinLoader {
         return new ArrayList<>() {
 
             {
+                if (GSEConfig.storageScannerBlacklist) {
+                    add("mixins.gsecore.storagescanner.json");
+                }
                 if (GSEConfig.largeBoilerHigherEfficiency) {
                     add("mixins.gsecore.boiler.json");
                 }
